@@ -6,20 +6,24 @@ existing checkout.
 
 ## Install the skill
 
-Install it for the current project and choose the agents when prompted:
+Install it for Codex in the current project:
 
 ```sh
-npx skills add ImLunaHey/project-standards --skill luna-project-standards
+npx skills add ImLunaHey/project-standards --skill luna-project-standards --agent codex --yes
 ```
 
-Install it globally so it is available across projects:
+Install it globally for Codex so it is available across projects:
 
 ```sh
-npx skills add ImLunaHey/project-standards --skill luna-project-standards -g
+npx skills add ImLunaHey/project-standards --skill luna-project-standards --global --agent codex --yes
 ```
 
 Then ask the agent to use `$luna-project-standards` to create, migrate, or
 audit a project. Automatic discovery remains enabled for matching requests.
+
+The `--agent codex` selection matters when other agents are detected. Some,
+including PromptScript, do not support global installation; install for those
+agents at project scope instead of using `--global`.
 
 ## Start here
 
