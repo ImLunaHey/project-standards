@@ -1,0 +1,10 @@
+# Merge these sections into Cargo.toml. This file is not consumed by Cargo.
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
+pedantic = "warn"
+unwrap_used = "warn"
+expect_used = "warn"

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "defaults": {
+    "branch": "main",
+    "publicLicense": "MIT",
+    "migrationDelivery": "pull-request",
+    "mergeRequiresApproval": true,
+    "typescriptTestRunner": "vitest",
+    "newTypeScriptFormatter": "prettier",
+    "newTypeScriptLinter": "eslint-flat-config",
+    "preserveExistingPackageManager": true,
+    "preserveExistingFramework": true
+  },
+  "profiles": {
+    "typescript-library": {
+      "standards": ["base", "typescript", "testing", "github"]
+    },
+    "node-service": {
+      "standards": ["base", "typescript", "testing", "github"]
+    },
+    "frontend": {
+      "standards": ["base", "typescript", "frontend", "testing", "github"]
+    },
+    "rust-cli": {
+      "standards": ["base", "rust", "testing", "github"]
+    },
+    "rust-service": {
+      "standards": ["base", "rust", "testing", "github"]
+    }
+  },
+  "requiredValidation": {
+    "typescript": ["format", "lint", "typecheck", "test", "build"],
+    "rust": ["cargo fmt --check", "cargo clippy", "cargo test"]
+  },
+  "forbiddenImplicitActions": [
+    "merge",
+    "publish",
+    "deploy",
+    "archive",
+    "change-visibility",
+    "create-remote-without-explicit-intent"
+  ]
+}
