@@ -72,6 +72,9 @@ if (manifest?.defaults?.defaultBackend !== 'rust-axum-tokio') {
 if (manifest?.defaults?.graphql !== 'forbidden') {
   failures.push('standards.json: GraphQL must be forbidden');
 }
+if (manifest?.defaults?.componentVariantUtility !== 'class-variance-authority') {
+  failures.push('standards.json: component variants must use class-variance-authority');
+}
 if (manifest?.defaults?.newTypeScriptFormatter !== 'oxfmt') {
   failures.push('standards.json: TypeScript formatter must be Oxfmt');
 }

@@ -19,6 +19,11 @@
 - Use Tailwind only. Build every component from scratch with accessible web
   primitives. Do not install shadcn/ui, Radix, or another component/headless UI
   kit. Use Lucide icons.
+- Use CVA (`class-variance-authority`) for reusable components with named
+  variants, sizes, or compound visual states. Keep variant classes and defaults
+  in the CVA declaration, derive props with `VariantProps`, and use `cn` to
+  merge its result with caller classes instead of branching through class
+  strings manually.
 - Colocate feature components, hooks, schemas, and tests. Put global primitives
   in a shared `components` directory and keep one React component per file.
 - Meet WCAG 2.2 AA and fail lint on violations. Support keyboard navigation,

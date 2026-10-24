@@ -14,6 +14,12 @@
   components from scratch with semantic platform primitives. Colocate
   feature-specific components; place genuinely global primitives such as
   buttons and inputs in a shared `components` directory.
+- Use `cva` from `class-variance-authority` for reusable components with named
+  variants, sizes, or compound visual states. Define the Tailwind classes and
+  defaults in the CVA configuration, derive prop types with `VariantProps`, and
+  use `cn` only to merge the generated classes with a caller's `className`.
+  Avoid nested ternaries or manually assembled style strings for component
+  variants.
 - Keep every React component in its own file. Group feature code by feature,
   colocating its hooks, schemas, components, and tests.
 - Use Lucide for icons rather than drawing one-off icon SVGs.

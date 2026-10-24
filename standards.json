@@ -16,6 +16,7 @@
     "typescriptBackend": "tanstack-start",
     "apiStyle": "rest-openapi",
     "graphql": "forbidden",
+    "componentVariantUtility": "class-variance-authority",
     "typescriptPackageManager": "pnpm",
     "typescriptTestRunner": "vitest",
     "newTypeScriptFormatter": "oxfmt",
