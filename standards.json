@@ -1,13 +1,32 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "defaults": {
     "branch": "main",
+    "branchPattern": "luna/<kebab-case-description>",
     "publicLicense": "MIT",
     "migrationDelivery": "pull-request",
+    "allChangesUsePullRequests": true,
     "mergeRequiresApproval": true,
+    "mergeMethod": "squash",
+    "squashCommitTitle": "pull-request-title",
+    "squashCommitMessage": "pull-request-body",
+    "conventionalCommits": true,
+    "conventionalPullRequestTitles": true,
+    "defaultBackend": "rust-axum-tokio",
+    "typescriptBackend": "tanstack-start",
+    "apiStyle": "rest-openapi",
+    "graphql": "forbidden",
+    "typescriptPackageManager": "pnpm",
     "typescriptTestRunner": "vitest",
-    "newTypeScriptFormatter": "prettier",
-    "newTypeScriptLinter": "eslint-flat-config",
+    "newTypeScriptFormatter": "oxfmt",
+    "newTypeScriptLinter": "oxlint",
+    "rustTestRunner": "cargo-nextest",
+    "toolVersionManager": "mise",
+    "dependencyUpdater": "renovate",
+    "typescriptReleaseTool": "changesets",
+    "rustReleaseTool": "release-plz",
+    "typescriptLogger": "evlog",
+    "rustLogger": "tracing",
     "preserveExistingPackageManager": true,
     "preserveExistingFramework": true
   },
@@ -16,21 +35,39 @@
       "standards": ["base", "typescript", "testing", "github"]
     },
     "node-service": {
-      "standards": ["base", "typescript", "testing", "github"]
+      "standards": ["base", "typescript", "backend", "data", "testing", "github"]
     },
     "frontend": {
       "standards": ["base", "typescript", "frontend", "testing", "github"]
+    },
+    "fullstack-app": {
+      "standards": [
+        "base",
+        "typescript",
+        "frontend",
+        "backend",
+        "data",
+        "rust",
+        "testing",
+        "github"
+      ]
     },
     "rust-cli": {
       "standards": ["base", "rust", "testing", "github"]
     },
     "rust-service": {
-      "standards": ["base", "rust", "testing", "github"]
+      "standards": ["base", "backend", "data", "rust", "testing", "github"]
     }
   },
   "requiredValidation": {
     "typescript": ["format", "lint", "typecheck", "test", "build"],
-    "rust": ["cargo fmt --check", "cargo clippy", "cargo test"]
+    "rust": [
+      "cargo fmt --check",
+      "cargo clippy --all-targets --all-features -- -D warnings",
+      "cargo nextest run --all-features",
+      "cargo test --doc --all-features"
+    ],
+    "frontend": ["accessibility-lint", "component-tests", "playwright-critical-flows"]
   },
   "forbiddenImplicitActions": [
     "merge",

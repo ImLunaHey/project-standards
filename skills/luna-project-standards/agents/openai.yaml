@@ -1,0 +1,7 @@
+interface:
+  display_name: 'Luna Project Standards'
+  short_description: 'Create, migrate, or audit opinionated projects'
+  default_prompt: "Use $luna-project-standards to create or migrate this project to Luna's standards."
+
+policy:
+  allow_implicit_invocation: true

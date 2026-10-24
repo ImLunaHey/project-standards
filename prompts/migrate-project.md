@@ -3,7 +3,7 @@
 Use this from an existing repository checkout.
 
 ```text
-Migrate the current repository to Luna's project standards through a focused
+Use $luna-project-standards to migrate the current repository through a focused
 pull request.
 
 Canonical playbook:
@@ -18,7 +18,8 @@ required to fix a demonstrated problem.
 
 Read repository-local instructions and the canonical playbook before editing.
 Audit first, record baseline failures, then apply the smallest coherent change.
-Use Vitest for TypeScript tests. Run every applicable check, push a branch, and
-open/link a PR with validation and deviations. Do not merge, publish, deploy,
-archive, or change repository settings.
+Use a luna/* branch, Conventional Commits, and Vitest for TypeScript tests. Run
+every applicable check and open/link a Conventional Commit PR with validation
+and deviations. Never push to main. Do not merge, publish, deploy, archive, or
+change repository settings.
 ```

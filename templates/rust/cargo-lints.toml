@@ -5,6 +5,8 @@ unsafe_code = "forbid"
 
 [lints.clippy]
 all = "warn"
-pedantic = "warn"
 unwrap_used = "warn"
 expect_used = "warn"
+
+# Enable individual pedantic lints when they improve this project. Avoid
+# enabling the entire pedantic group without reviewing its noise and MSRV cost.

@@ -10,3 +10,4 @@ Required outcome:
 - deterministic unit tests and integration tests for CLI behavior
 - format, Clippy, and test CI
 - install/build examples and platform support in the README
+- release-plz and semantic versioning when the crate is published

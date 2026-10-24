@@ -5,8 +5,9 @@ Use these scenarios when changing prompts or workflow rules.
 ## New project in an empty directory
 
 Given a directory with no files and no parent Git worktree, the agent selects a
-profile, creates the smallest working project, validates it, initializes
-`main`, and creates a remote only when the prompt explicitly requests one.
+profile, creates the smallest working project, validates it, bootstraps only an
+empty `main`, and delivers project work from `luna/initial-project` through a PR
+when the prompt explicitly requests a remote.
 
 ## Apparent empty directory inside a checkout
 
@@ -19,6 +20,29 @@ user intended.
 The agent audits before editing, selects a profile, records baseline results,
 creates a migration branch, applies a focused change, validates it, and opens a
 PR without merging it.
+
+## Frontend with a Rust backend
+
+Given a web product that needs a backend without a TypeScript-backend
+constraint, the agent creates one monorepo with a Vite/React/TanStack frontend
+and an Axum/Tokio backend. It does not choose TanStack Start or GraphQL.
+
+## Explicit TypeScript backend
+
+Given a web product that explicitly needs a TypeScript backend, the agent uses
+TanStack Start and Better Auth rather than introducing a separate Node
+framework.
+
+## UI implementation
+
+Given a request for a dialog, menu, form, or reusable primitive, the agent
+implements an accessible custom Tailwind component. It does not install
+shadcn/ui, Radix, or another component/headless UI kit.
+
+## Read-only audit
+
+Given an audit request, the agent reports gaps and recommendations without
+creating a branch, changing files, mutating GitHub settings, or opening a PR.
 
 ## Existing dirty repository
 

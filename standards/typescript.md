@@ -14,8 +14,8 @@
 ## Package management
 
 - Preserve the existing package manager during migrations.
-- New projects use the package manager named in the brief. Ask when it affects
-  deployment or publishing and is not specified.
+- New projects use pnpm unless an external deployment constraint requires
+  something else.
 - Commit exactly one lockfile for the selected manager.
 - Published npm libraries use npm-compatible lifecycle scripts; do not require
   Bun merely to install or pack unless Bun is the declared runtime contract.
@@ -32,9 +32,21 @@ Expose applicable scripts with predictable names:
 - `format` and/or `format:check`
 - `check` for the full local validation sequence
 
-Use Vitest for tests. Preserve an established formatter/linter during
-migration. For a new project without a stated choice, use Prettier and ESLint
-flat configuration; do not install competing tools that perform the same job.
+Use Vitest for tests. New projects use Oxfmt and Oxlint rather than Prettier or
+ESLint. Migrations replace existing tools only when the requested scope permits
+it and the resulting rules provide equivalent or stronger coverage.
+
+## Applications and workspaces
+
+- Use Evlog for structured TypeScript logging. Prefer request-scoped wide
+  events for operations that accumulate meaningful context, redact sensitive
+  fields, and emit readable local output plus JSON in production.
+- Validate environment configuration at startup and provide a secret-free
+  `.env.example`.
+- In mixed monorepos, use a pnpm workspace alongside the Cargo workspace.
+  Turborepo coordinates root tasks and caching when more than one app/package
+  benefits from it.
+- Pin Node, pnpm, and supporting tools with Mise.
 
 ## Libraries
 

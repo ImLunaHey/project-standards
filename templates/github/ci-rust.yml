@@ -13,9 +13,13 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - run: rustup update stable --no-self-update
       - run: rustup default stable
+      - run: cargo install --locked cargo-nextest cargo-audit cargo-deny
       - run: cargo fmt --check
       - run: cargo clippy --all-targets --all-features -- -D warnings
-      - run: cargo test --all-features
+      - run: cargo nextest run --all-features
+      - run: cargo test --doc --all-features
+      - run: cargo audit
+      - run: cargo deny check

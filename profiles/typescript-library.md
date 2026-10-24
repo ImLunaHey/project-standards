@@ -11,4 +11,5 @@ Required outcome:
 - validated npm package contents and exports
 - Node support policy and runtime smoke tests where module compatibility matters
 - README with installation, examples, API, requirements, and release notes
+- Changesets and semantic versioning when the package is published
 - no publish step without explicit authorization

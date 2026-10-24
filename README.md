@@ -4,6 +4,23 @@ Agent-ready standards for creating new repositories and migrating existing
 ones. The same playbook works in an empty T3 Code directory or inside an
 existing checkout.
 
+## Install the skill
+
+Install it for the current project and choose the agents when prompted:
+
+```sh
+npx skills add ImLunaHey/project-standards --skill luna-project-standards
+```
+
+Install it globally so it is available across projects:
+
+```sh
+npx skills add ImLunaHey/project-standards --skill luna-project-standards -g
+```
+
+Then ask the agent to use `$luna-project-standards` to create, migrate, or
+audit a project. Automatic discovery remains enabled for matching requests.
+
 ## Start here
 
 Choose one of the copy-paste prompts:
@@ -22,15 +39,18 @@ Adaptable reference configuration lives under [`templates/`](templates).
 
 ## Core defaults
 
-- `main` is the default branch.
+- Rust with Axum and Tokio is the default backend. TanStack Start is used when
+  a TypeScript backend is explicitly required.
+- Frontends use React, Tailwind, and relevant TanStack libraries with custom,
+  accessible components. GraphQL and component/headless UI kits are forbidden.
+- pnpm, Oxfmt, Oxlint, Vitest, Mise, Renovate, and Turborepo are the TypeScript
+  and monorepo defaults.
 - Public original work defaults to the MIT license unless the project brief
   requires another license.
-- TypeScript tests use Vitest.
 - Existing package managers and frameworks are preserved during migrations.
-- New projects do not guess consequential framework or deployment choices; the
-  agent asks when the brief does not provide them.
 - CI uses least privilege and runs the same checks developers run locally.
-- Agents open migration PRs but never merge them without explicit approval.
+- All project changes use `luna/*` branches and Conventional Commit PRs. Agents
+  never push project changes to `main` or merge without explicit approval.
 
 Machine-readable defaults are available in [`standards.json`](standards.json).
 
@@ -47,7 +67,9 @@ can reference a commit or release for reproducibility.
 ## Status
 
 This is a living standards repository. Project-specific requirements override
-these defaults, and explicit user instructions override everything here.
+adaptable defaults, but the explicit absolute constraints in the playbook must
+be changed deliberately rather than silently ignored. User instructions retain
+highest precedence.
 
 ## License
 
