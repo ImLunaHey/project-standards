@@ -82,6 +82,13 @@ if (manifest?.defaults?.branchPattern !== 'luna/<kebab-case-description>') {
   failures.push('standards.json: branch pattern must use luna/*');
 }
 
+const readme = readFileSync(join(root, 'README.md'), 'utf8');
+for (const requiredText of ['--global --agent codex --yes', 'PromptScript']) {
+  if (!readme.includes(requiredText)) {
+    failures.push(`README.md: missing skill installation guidance: ${requiredText}`);
+  }
+}
+
 const skillRoot = join(root, 'skills', 'luna-project-standards');
 const skillSource = readFileSync(join(skillRoot, 'SKILL.md'), 'utf8');
 for (const requiredText of [
