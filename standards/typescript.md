@@ -10,6 +10,9 @@
   declaration files and pass an export validation tool such as
   `@arethetypeswrong/cli`.
 - Avoid `any`; use `unknown`, validation, and narrowing at boundaries.
+- Declare one variable per statement. Do not chain declarations with commas;
+  use separate `const` lines and descriptive names such as `generatedId`
+  instead of `generated` when the value's role is known.
 
 ## Package management
 
@@ -35,6 +38,12 @@ Expose applicable scripts with predictable names:
 Use Vitest for tests. New projects use Oxfmt and Oxlint rather than Prettier or
 ESLint. Migrations replace existing tools only when the requested scope permits
 it and the resulting rules provide equivalent or stronger coverage.
+
+React projects also install React Doctor and include a blocking full-project
+scan in `lint` or the aggregate `check` command. Run
+`react-doctor --verbose --blocking error --no-telemetry` from the pinned local
+dependency; use `--scope changed` for faster agent checks while editing, but do
+not substitute that for the full CI scan.
 
 ## Applications and workspaces
 

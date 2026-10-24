@@ -19,6 +19,8 @@
   directories for integration and Playwright end-to-end tests.
 - Use Testing Library for component behavior and Playwright for important user
   journeys. Include automated accessibility assertions where applicable.
+- Treat React Doctor as a required React validation step alongside Oxlint. Its
+  error-level findings fail CI; warnings remain visible for review.
 - Prefer `expect` assertions and readable behavior-focused test names.
 - Keep Vitest on a security-supported release, even when that means tests run
   on a newer Node version than the published runtime supports.

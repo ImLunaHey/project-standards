@@ -44,6 +44,10 @@ states, the agent defines them with CVA and derives the variant prop types with
 `VariantProps`. It does not use nested ternaries to select long Tailwind class
 strings.
 
+Given related local values, the agent declares each with its own descriptive
+`const` statement rather than using a comma-separated declaration. A React
+project runs React Doctor as a blocking part of its full validation.
+
 ## Read-only audit
 
 Given an audit request, the agent reports gaps and recommendations without

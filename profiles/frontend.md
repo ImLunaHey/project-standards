@@ -14,5 +14,6 @@ Required outcome:
 - TanStack libraries used for server state, forms, tables, and charts when
   those capabilities exist
 - Vitest and Testing Library behavior tests plus Playwright for important flows
+- Oxlint plus a blocking full-project React Doctor scan
 - production build verified
 - README with local development and deployment instructions

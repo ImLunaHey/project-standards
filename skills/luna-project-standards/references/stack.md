@@ -8,6 +8,9 @@
   orchestration and caching. Pin Node, pnpm, Rust, and tools with Mise.
 - New TypeScript uses Oxfmt and Oxlint. Tests use Vitest and Testing Library;
   Playwright covers important end-to-end flows.
+- Declare one variable per statement with descriptive names. Never chain
+  declarations with commas; prefer separate `const generatedId = useId()` and
+  `const id = children.props.id ?? generatedId` statements.
 
 ## Frontend
 
@@ -31,6 +34,9 @@
   tablet, and desktop layouts. Never make a user interface desktop-only.
 - Use `Intl` and support current plus previous Chrome, Firefox, Safari, and
   Edge. Use Storybook only for component libraries or substantial systems.
+- Install React Doctor in React projects. Include a blocking full-project
+  `react-doctor --verbose --blocking error --no-telemetry` scan in `lint` or
+  `check`, and use `--scope changed` for fast agent feedback while editing.
 
 ## Backend and API
 

@@ -30,6 +30,8 @@ compatible.
 
 For TypeScript, expose consistent `format`, `lint`, `typecheck`, `test`,
 `build`, and aggregate `check` tasks using pnpm, Oxfmt, Oxlint, and Vitest.
+React projects include a pinned React Doctor dependency and run its blocking
+full-project scan as part of `lint` or `check`.
 
 Collect coverage and aim for high file, function, and component coverage, but
 do not impose or game a universal percentage threshold.

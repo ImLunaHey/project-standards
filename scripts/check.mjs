@@ -75,6 +75,12 @@ if (manifest?.defaults?.graphql !== 'forbidden') {
 if (manifest?.defaults?.componentVariantUtility !== 'class-variance-authority') {
   failures.push('standards.json: component variants must use class-variance-authority');
 }
+if (manifest?.defaults?.oneVariableDeclarationPerStatement !== true) {
+  failures.push('standards.json: TypeScript must use one declaration per statement');
+}
+if (!manifest?.requiredValidation?.frontend?.includes('react-doctor')) {
+  failures.push('standards.json: React validation must include React Doctor');
+}
 if (manifest?.defaults?.newTypeScriptFormatter !== 'oxfmt') {
   failures.push('standards.json: TypeScript formatter must be Oxfmt');
 }
