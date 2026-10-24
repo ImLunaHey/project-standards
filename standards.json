@@ -18,6 +18,8 @@
     "graphql": "forbidden",
     "componentVariantUtility": "class-variance-authority",
     "oneVariableDeclarationPerStatement": true,
+    "handwrittenBarrelFiles": "forbidden",
+    "generatedBarrelFiles": "allowed",
     "typescriptPackageManager": "pnpm",
     "typescriptTestRunner": "vitest",
     "newTypeScriptFormatter": "oxfmt",

@@ -11,6 +11,10 @@
 - Declare one variable per statement with descriptive names. Never chain
   declarations with commas; prefer separate `const generatedId = useId()` and
   `const id = children.props.id ?? generatedId` statements.
+- Never create handwritten barrel files or `index.ts` re-export hubs. Import
+  directly from defining modules and use explicit package subpath exports. A
+  generator may own a barrel when its configuration is committed; never edit
+  the generated output manually.
 
 ## Frontend
 

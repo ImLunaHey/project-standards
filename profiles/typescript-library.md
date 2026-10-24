@@ -5,6 +5,8 @@ Apply the base, TypeScript, testing, and GitHub standards.
 Required outcome:
 
 - small public API with typed exports
+- explicit subpath exports or generator-owned aggregate entry points; no
+  handwritten barrel files
 - Vitest unit tests
 - strict type-checking
 - ESM package by default; CommonJS only for demonstrated consumers

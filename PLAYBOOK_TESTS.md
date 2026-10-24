@@ -48,6 +48,11 @@ Given related local values, the agent declares each with its own descriptive
 `const` statement rather than using a comma-separated declaration. A React
 project runs React Doctor as a blocking part of its full validation.
 
+Given code shared across modules, the agent imports from the defining module
+and does not create an `index.ts` re-export hub. If a framework or API generator
+owns a barrel, the agent preserves its configuration and does not hand-edit the
+generated file.
+
 ## Read-only audit
 
 Given an audit request, the agent reports gaps and recommendations without

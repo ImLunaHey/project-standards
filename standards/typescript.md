@@ -13,6 +13,11 @@
 - Declare one variable per statement. Do not chain declarations with commas;
   use separate `const` lines and descriptive names such as `generatedId`
   instead of `generated` when the value's role is known.
+- Never create handwritten barrel files or `index.ts` re-export hubs. Import
+  from the module that defines the symbol and use explicit package subpath
+  exports when a library exposes multiple entry points. A barrel is allowed
+  only when an authoritative tool generates it; keep the generator
+  configuration in version control and never edit its output by hand.
 
 ## Package management
 
@@ -61,6 +66,9 @@ not substitute that for the full CI scan.
 
 - Declare `files`, `exports`, `types`, `engines`, repository, bugs, homepage,
   keywords, and license metadata.
+- Prefer explicit package subpath entry points. If a package requires an
+  aggregate public entry point, generate it rather than maintaining a barrel by
+  hand.
 - Verify packed contents before release.
 - Keep runtime dependencies minimal; development-only tools belong in
   `devDependencies`.

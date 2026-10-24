@@ -78,6 +78,12 @@ if (manifest?.defaults?.componentVariantUtility !== 'class-variance-authority') 
 if (manifest?.defaults?.oneVariableDeclarationPerStatement !== true) {
   failures.push('standards.json: TypeScript must use one declaration per statement');
 }
+if (manifest?.defaults?.handwrittenBarrelFiles !== 'forbidden') {
+  failures.push('standards.json: handwritten barrel files must be forbidden');
+}
+if (manifest?.defaults?.generatedBarrelFiles !== 'allowed') {
+  failures.push('standards.json: generated barrel files must remain allowed');
+}
 if (!manifest?.requiredValidation?.frontend?.includes('react-doctor')) {
   failures.push('standards.json: React validation must include React Doctor');
 }
