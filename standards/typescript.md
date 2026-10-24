@@ -10,6 +10,14 @@
   declaration files and pass an export validation tool such as
   `@arethetypeswrong/cli`.
 - Avoid `any`; use `unknown`, validation, and narrowing at boundaries.
+- Declare one variable per statement. Do not chain declarations with commas;
+  use separate `const` lines and descriptive names such as `generatedId`
+  instead of `generated` when the value's role is known.
+- Never create handwritten barrel files or `index.ts` re-export hubs. Import
+  from the module that defines the symbol and use explicit package subpath
+  exports when a library exposes multiple entry points. A barrel is allowed
+  only when an authoritative tool generates it; keep the generator
+  configuration in version control and never edit its output by hand.
 
 ## Package management
 
@@ -36,6 +44,13 @@ Use Vitest for tests. New projects use Oxfmt and Oxlint rather than Prettier or
 ESLint. Migrations replace existing tools only when the requested scope permits
 it and the resulting rules provide equivalent or stronger coverage.
 
+React projects install `oxlint-plugin-react-doctor`, load it through Oxlint's
+`jsPlugins`, and enable its recommended rules plus only the framework presets
+that match the project. TanStack projects enable the TanStack Start and/or
+TanStack Query rule maps as applicable. Run these rules through the normal
+Oxlint `lint` command; do not add the standalone React Doctor CLI or a separate
+React Doctor CI workflow.
+
 ## Applications and workspaces
 
 - Use Evlog for structured TypeScript logging. Prefer request-scoped wide
@@ -52,6 +67,9 @@ it and the resulting rules provide equivalent or stronger coverage.
 
 - Declare `files`, `exports`, `types`, `engines`, repository, bugs, homepage,
   keywords, and license metadata.
+- Prefer explicit package subpath entry points. If a package requires an
+  aggregate public entry point, generate it rather than maintaining a barrel by
+  hand.
 - Verify packed contents before release.
 - Keep runtime dependencies minimal; development-only tools belong in
   `devDependencies`.

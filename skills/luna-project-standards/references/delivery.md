@@ -30,6 +30,9 @@ compatible.
 
 For TypeScript, expose consistent `format`, `lint`, `typecheck`, `test`,
 `build`, and aggregate `check` tasks using pnpm, Oxfmt, Oxlint, and Vitest.
+React projects include a pinned `oxlint-plugin-react-doctor` dependency and run
+its applicable rule sets through the existing Oxlint command. Do not add a
+standalone React Doctor CLI invocation.
 
 Collect coverage and aim for high file, function, and component coverage, but
 do not impose or game a universal percentage threshold.

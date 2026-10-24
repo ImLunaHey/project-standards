@@ -25,6 +25,8 @@
 - [ ] Format, lint, type-check, test, and build commands are reproducible.
 - [ ] TypeScript tests use Vitest.
 - [ ] TypeScript uses pnpm and Oxc where migration scope permits.
+- [ ] No handwritten barrel files are added; any generated barrel has committed
+      generator configuration and is not edited manually.
 - [ ] Frontends meet WCAG 2.2 AA, fail accessibility lint, remain mobile-first,
       and use custom Tailwind components without component/headless UI kits.
 - [ ] Published package exports and packed files are validated.

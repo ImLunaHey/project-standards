@@ -39,6 +39,21 @@ Given a request for a dialog, menu, form, or reusable primitive, the agent
 implements an accessible custom Tailwind component. It does not install
 shadcn/ui, Radix, or another component/headless UI kit.
 
+Given a reusable component with named variants, sizes, or compound visual
+states, the agent defines them with CVA and derives the variant prop types with
+`VariantProps`. It does not use nested ternaries to select long Tailwind class
+strings.
+
+Given related local values, the agent declares each with its own descriptive
+`const` statement rather than using a comma-separated declaration. A React
+project loads the matching React Doctor rules into Oxlint and does not add a
+separate React Doctor CLI command or workflow.
+
+Given code shared across modules, the agent imports from the defining module
+and does not create an `index.ts` re-export hub. If a framework or API generator
+owns a barrel, the agent preserves its configuration and does not hand-edit the
+generated file.
+
 ## Read-only audit
 
 Given an audit request, the agent reports gaps and recommendations without

@@ -39,6 +39,8 @@ visibility, or mutate unrelated repository settings.
 - REST/OpenAPI only. Never GraphQL.
 - Tailwind with custom components only. Never shadcn/ui, Radix, or another
   component/headless UI kit.
+- Never create handwritten barrel files. Generator-owned barrels are allowed
+  but must not be edited manually.
 - Every user-facing interface is mobile-first and meets WCAG 2.2 AA.
 - Every project change uses a `luna/*` branch, Conventional Commits, and a PR.
   Never push project changes directly to `main`.

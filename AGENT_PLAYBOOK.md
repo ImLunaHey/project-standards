@@ -148,5 +148,6 @@ End with:
 
 - Never use GraphQL.
 - Never use shadcn/ui, Radix, or another component/headless UI kit.
+- Never create a handwritten barrel file. Generator-owned barrels are allowed.
 - Never ship a desktop-only user-facing interface.
 - Never push project changes directly to `main`.

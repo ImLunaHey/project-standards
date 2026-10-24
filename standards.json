@@ -16,6 +16,12 @@
     "typescriptBackend": "tanstack-start",
     "apiStyle": "rest-openapi",
     "graphql": "forbidden",
+    "componentVariantUtility": "class-variance-authority",
+    "oneVariableDeclarationPerStatement": true,
+    "handwrittenBarrelFiles": "forbidden",
+    "generatedBarrelFiles": "allowed",
+    "reactLintPlugin": "oxlint-plugin-react-doctor",
+    "standaloneReactDoctorCli": false,
     "typescriptPackageManager": "pnpm",
     "typescriptTestRunner": "vitest",
     "newTypeScriptFormatter": "oxfmt",
@@ -67,7 +73,12 @@
       "cargo nextest run --all-features",
       "cargo test --doc --all-features"
     ],
-    "frontend": ["accessibility-lint", "component-tests", "playwright-critical-flows"]
+    "frontend": [
+      "accessibility-lint",
+      "react-doctor-oxlint-rules",
+      "component-tests",
+      "playwright-critical-flows"
+    ]
   },
   "forbiddenImplicitActions": [
     "merge",
