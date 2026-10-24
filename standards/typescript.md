@@ -44,11 +44,12 @@ Use Vitest for tests. New projects use Oxfmt and Oxlint rather than Prettier or
 ESLint. Migrations replace existing tools only when the requested scope permits
 it and the resulting rules provide equivalent or stronger coverage.
 
-React projects also install React Doctor and include a blocking full-project
-scan in `lint` or the aggregate `check` command. Run
-`react-doctor --verbose --blocking error --no-telemetry` from the pinned local
-dependency; use `--scope changed` for faster agent checks while editing, but do
-not substitute that for the full CI scan.
+React projects install `oxlint-plugin-react-doctor`, load it through Oxlint's
+`jsPlugins`, and enable its recommended rules plus only the framework presets
+that match the project. TanStack projects enable the TanStack Start and/or
+TanStack Query rule maps as applicable. Run these rules through the normal
+Oxlint `lint` command; do not add the standalone React Doctor CLI or a separate
+React Doctor CI workflow.
 
 ## Applications and workspaces
 

@@ -46,7 +46,8 @@ strings.
 
 Given related local values, the agent declares each with its own descriptive
 `const` statement rather than using a comma-separated declaration. A React
-project runs React Doctor as a blocking part of its full validation.
+project loads the matching React Doctor rules into Oxlint and does not add a
+separate React Doctor CLI command or workflow.
 
 Given code shared across modules, the agent imports from the defining module
 and does not create an `index.ts` re-export hub. If a framework or API generator

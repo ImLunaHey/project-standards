@@ -38,9 +38,11 @@
   tablet, and desktop layouts. Never make a user interface desktop-only.
 - Use `Intl` and support current plus previous Chrome, Firefox, Safari, and
   Edge. Use Storybook only for component libraries or substantial systems.
-- Install React Doctor in React projects. Include a blocking full-project
-  `react-doctor --verbose --blocking error --no-telemetry` scan in `lint` or
-  `check`, and use `--scope changed` for fast agent feedback while editing.
+- React projects install `oxlint-plugin-react-doctor` and load it through
+  Oxlint's `jsPlugins`. Enable its recommended rules and only the matching
+  framework presets, including TanStack Start or TanStack Query when used. Run
+  them through the existing Oxlint command; never add the standalone React
+  Doctor CLI or a separate React Doctor CI workflow.
 
 ## Backend and API
 

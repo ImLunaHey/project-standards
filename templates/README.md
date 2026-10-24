@@ -13,3 +13,6 @@ During migration, preserve a working equivalent configuration rather than
 replacing it solely to match filenames or formatting choices here.
 
 Place `rust/nextest.toml` at `.config/nextest.toml` in a Cargo workspace.
+For React projects, use `typescript/oxlint-react.config.ts` instead of
+`.oxlintrc.json`; Oxlint supports only one discovered configuration file per
+directory. Remove framework rule maps that do not match the project.

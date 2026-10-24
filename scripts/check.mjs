@@ -84,8 +84,14 @@ if (manifest?.defaults?.handwrittenBarrelFiles !== 'forbidden') {
 if (manifest?.defaults?.generatedBarrelFiles !== 'allowed') {
   failures.push('standards.json: generated barrel files must remain allowed');
 }
-if (!manifest?.requiredValidation?.frontend?.includes('react-doctor')) {
-  failures.push('standards.json: React validation must include React Doctor');
+if (manifest?.defaults?.reactLintPlugin !== 'oxlint-plugin-react-doctor') {
+  failures.push('standards.json: React linting must use oxlint-plugin-react-doctor');
+}
+if (manifest?.defaults?.standaloneReactDoctorCli !== false) {
+  failures.push('standards.json: standalone React Doctor CLI must be disabled');
+}
+if (!manifest?.requiredValidation?.frontend?.includes('react-doctor-oxlint-rules')) {
+  failures.push('standards.json: React validation must include React Doctor Oxlint rules');
 }
 if (manifest?.defaults?.newTypeScriptFormatter !== 'oxfmt') {
   failures.push('standards.json: TypeScript formatter must be Oxfmt');

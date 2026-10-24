@@ -20,6 +20,8 @@
     "oneVariableDeclarationPerStatement": true,
     "handwrittenBarrelFiles": "forbidden",
     "generatedBarrelFiles": "allowed",
+    "reactLintPlugin": "oxlint-plugin-react-doctor",
+    "standaloneReactDoctorCli": false,
     "typescriptPackageManager": "pnpm",
     "typescriptTestRunner": "vitest",
     "newTypeScriptFormatter": "oxfmt",
@@ -73,7 +75,7 @@
     ],
     "frontend": [
       "accessibility-lint",
-      "react-doctor",
+      "react-doctor-oxlint-rules",
       "component-tests",
       "playwright-critical-flows"
     ]
