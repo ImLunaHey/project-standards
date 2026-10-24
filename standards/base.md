@@ -16,6 +16,8 @@ overrides it.
 - An explicit license for public reusable work. Default to MIT only when no
   dependency, upstream, or product constraint requires another license.
 - Reproducible local commands for all CI checks.
+- Tool versions pinned with Mise when the project has development tool
+  dependencies beyond the language-native manifest.
 - No committed build output unless consumers require it, as with bundled
   JavaScript GitHub Actions.
 
@@ -27,8 +29,9 @@ overrides it.
 - Keep configuration close to the tool that consumes it.
 - Comments explain decisions and constraints, not obvious syntax.
 - Remove dead starter assets and unused dependencies.
-- Use concise conventional commit subjects when the repository has no stronger
-  convention.
+- Use Conventional Commits for every commit and PR title.
+- Record material dependency, storage, security, and architecture choices as
+  short ADRs under `docs/decisions/`.
 
 ## Compatibility
 
@@ -37,11 +40,15 @@ overrides it.
   intentional and documented.
 - Applications may update more aggressively, but deployment compatibility must
   be verified.
+- Published projects follow semantic versioning and maintain a changelog. Use
+  Changesets for TypeScript packages and release-plz for Rust crates.
 
 ## Security
 
 - Use least-privilege tokens and CI permissions.
-- Pin third-party automation to a reviewed version or commit.
+- Commit lockfiles and pin every GitHub Action to a reviewed full commit SHA.
+- Run ecosystem dependency audits, secret scanning, and `cargo deny` where
+  applicable. Add CodeQL to public applications and security-sensitive code.
 - Treat values committed as API keys or tokens as compromised even if the
   repository is later archived or made private.
 - Never print secrets while auditing or migrating a repository.

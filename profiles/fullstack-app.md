@@ -1,0 +1,16 @@
+# Full-stack application profile
+
+Apply the base, TypeScript, frontend, backend, data, Rust, testing, and GitHub
+standards.
+
+Required outcome:
+
+- one monorepo using `apps/web`, `apps/api`, and `packages/*` where applicable
+- pnpm and Cargo workspaces coordinated by Turborepo
+- Vite/React/TanStack frontend and an Axum/Tokio Rust backend by default
+- TanStack Start instead only when the brief requires a TypeScript backend
+- REST/OpenAPI contract with an Orval-generated client and Query hooks
+- Better Auth compatibility appropriate to the backend language
+- PostgreSQL or SQLite chosen from deployment needs rather than habit
+- mobile-first WCAG 2.2 AA UI with light and dark themes
+- Dockerfiles, local Docker Compose dependencies, CI, and complete README
