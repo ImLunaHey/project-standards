@@ -30,7 +30,8 @@
 - [ ] Frontends meet WCAG 2.2 AA, fail accessibility lint, remain mobile-first,
       and use custom Tailwind components without component/headless UI kits.
 - [ ] Pages, resource details, and navigable tabs use slash routes; query/hash
-      routing is replaced without breaking existing bookmarks. Filters stay in
+      routing is replaced; add compatibility redirects only when the user explicitly
+      requests them. Filters stay in
       query parameters, and direct entry, reload, history, and invalid paths
       are tested against the deployment contract.
 - [ ] Published package exports and packed files are validated.
