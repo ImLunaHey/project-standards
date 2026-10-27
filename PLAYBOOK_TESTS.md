@@ -92,7 +92,8 @@ or `/#/repositories`. A filter such as `?state=open` is allowed on a
 route; a fragment such as `#discussion` may target content within the page.
 
 Given an existing query-routed application, the agent migrates navigation
-within the current framework, redirects old links to canonical paths, keeps
-relevant filters, and tests reloads, direct links, browser back/forward, invalid
-paths, and production server routing. It does not rewrite the framework or
-introduce a second routing system.
+within the current framework, keeps relevant filters, and tests reloads, direct
+links, browser back/forward, invalid paths, and production server routing. It
+does not add redirects or compatibility handlers unless the user explicitly
+requests backwards compatibility. When requested, it tests those redirects too.
+It does not rewrite the framework or introduce a second routing system.

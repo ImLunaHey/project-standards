@@ -72,6 +72,18 @@ if (!manifest?.requiredValidation?.frontend?.includes('slash-route-navigation-an
   failures.push('standards.json: frontend validation must cover slash routes and deep links');
 }
 
+if (
+  manifest?.defaults?.backwardsCompatibility !== 'only-when-explicitly-requested' ||
+  manifest?.defaults?.frontendNavigation?.legacyLinkMigration !== 'only-when-explicitly-requested'
+) {
+  failures.push('standards.json: backwards compatibility must be explicitly requested');
+}
+if (
+  manifest?.defaults?.pullRequestTitleWorkflow !==
+  'ImLunaHey/project-standards/.github/workflows/pr-title.yml'
+) {
+  failures.push('standards.json: reusable PR-title workflow must be declared');
+}
 if (manifest?.defaults?.typescriptTestRunner !== 'vitest') {
   failures.push('standards.json: TypeScript test runner must be Vitest');
 }

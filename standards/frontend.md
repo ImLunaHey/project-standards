@@ -22,12 +22,12 @@
   malformed routes must show an appropriate not-found/error state. Direct
   links, reloads, and browser back/forward navigation must work in production;
   configure SPA fallback or server routing without masking API/asset errors.
-- When migrating query/hash navigation, preserve existing bookmarks through
-  redirects or a compatibility handler to the canonical slash routes. Preserve
-  relevant filters. Existing frameworks and package managers remain in place.
+- Do not add legacy redirects or compatibility handlers unless the user
+  explicitly requests backwards compatibility. Keep the existing framework
+  and package manager unless their replacement is requested.
 - Add behavior tests for direct entry, reload, tab/detail navigation, history,
-  invalid route parameters, retained filters, and legacy-link redirects when
-  applicable.
+  invalid route parameters, and retained filters. Test legacy-link redirects
+  only when the user explicitly requested them.
 - Use Tailwind CSS exclusively for application styling.
 - Never add shadcn/ui, Radix, or another component/headless UI kit. Implement
   components from scratch with semantic platform primitives. Colocate

@@ -152,5 +152,6 @@ End with:
 - Never ship a desktop-only user-facing interface.
 - Use slash routes for frontend pages, resource details, and navigable tabs.
   Query parameters are for state within a route, not route selection; hash
-  routing is forbidden. Preserve legacy links during migrations.
+  routing is forbidden. Backwards compatibility is opt-in: add legacy
+  redirects, shims, or dual behavior only when explicitly requested by the user.
 - Never push project changes directly to `main`.

@@ -42,8 +42,10 @@
       "hashRouting": "forbidden",
       "queryParametersFor": ["search", "filters", "sorting", "pagination"],
       "fragmentsFor": "in-page-anchors",
-      "legacyLinkMigration": "redirect-to-canonical-path"
-    }
+      "legacyLinkMigration": "only-when-explicitly-requested"
+    },
+    "backwardsCompatibility": "only-when-explicitly-requested",
+    "pullRequestTitleWorkflow": "ImLunaHey/project-standards/.github/workflows/pr-title.yml"
   },
   "profiles": {
     "typescript-library": {

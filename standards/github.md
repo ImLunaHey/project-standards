@@ -5,7 +5,8 @@
   delivered through a pull request.
 - Branch names use `luna/<kebab-case-description>`.
 - Commits and PR titles use Conventional Commits. CI must reject a PR title
-  that does not comply.
+  that does not comply. Use the [reusable PR-title workflow](../.github/workflows/pr-title.yml),
+  pinned to a reviewed full commit SHA, as described below.
 - One repository per migration PR.
 - CI permissions default to `contents: read`; grant write permissions only to
   the job that requires them.
@@ -25,3 +26,29 @@
 - Delete merged branches automatically.
 - Repository description, topics, homepage, Pages, package, and deployment
   settings are GitHub state, not PR content; change them only with authorization.
+
+## Reusable PR-title check
+
+Add a caller workflow in each repository. Replace the placeholder with a reviewed
+full commit SHA from this standards repository; do not use a moving branch.
+
+```yaml
+name: PR title
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+permissions:
+  pull-requests: read
+jobs:
+  conventional-commit:
+    uses: ImLunaHey/project-standards/.github/workflows/pr-title.yml@<reviewed-full-commit-sha>
+```
+
+The workflow checks the caller's PR title with a SHA-pinned semantic PR action.
+It accepts Conventional Commit types such as `fix:` and `feat(scope)!:`,
+and fails malformed titles. The `edited` event rechecks title changes. It needs
+only PR read access, no checkout, custom secret, or `secrets: inherit`. Keep
+it independent of application builds and path filters. Repository rulesets must
+require the resulting title check to block merging; adding a workflow alone does
+not change repository protection settings. Configure those settings only when
+authorized. See [GitHub's reusable workflow reference](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations).
