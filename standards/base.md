@@ -36,10 +36,10 @@ overrides it.
 ## Compatibility
 
 - State supported runtime versions.
-- Libraries preserve public API compatibility unless a breaking release is
-  intentional and documented.
-- Applications may update more aggressively, but deployment compatibility must
-  be verified.
+- Backwards compatibility is opt-in. Do not add legacy redirects, shims,
+  fallback formats, or dual behavior unless the user explicitly requests it.
+- Document breaking changes and their migration impact; this does not imply
+  maintaining the old behavior. Verify the supported deployment environment.
 - Published projects follow semantic versioning and maintain a changelog. Use
   Changesets for TypeScript packages and release-plz for Rust crates.
 

@@ -14,3 +14,7 @@ Required outcome:
 - PostgreSQL or SQLite chosen from deployment needs rather than habit
 - mobile-first WCAG 2.2 AA UI with light and dark themes
 - Dockerfiles, local Docker Compose dependencies, CI, and complete README
+
+Frontend navigation follows the [frontend standard](../standards/frontend.md):
+use slash routes for pages, resource details, and navigable tabs, preserving
+direct links, reloads, and history in the production deployment.

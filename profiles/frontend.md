@@ -9,6 +9,8 @@ Required outcome:
 - Tailwind-only custom components with no UI or headless component kit
 - mobile-first, WCAG 2.2 AA first vertical slice with lint failures for
   accessibility violations
+- slash routes for pages, resource details, and navigable tabs; query parameters
+  only for state within a route, with direct links/reloads/history validated
 - explicit environment and API boundary
 - loading, empty, failure, and success states
 - TanStack libraries used for server state, forms, tables, and charts when

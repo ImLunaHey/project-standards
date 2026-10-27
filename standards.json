@@ -34,7 +34,18 @@
     "typescriptLogger": "evlog",
     "rustLogger": "tracing",
     "preserveExistingPackageManager": true,
-    "preserveExistingFramework": true
+    "preserveExistingFramework": true,
+    "frontendNavigation": {
+      "pagesAndResources": "slash-path-routes",
+      "navigableTabs": "slash-path-routes",
+      "queryParameterRouting": "forbidden",
+      "hashRouting": "forbidden",
+      "queryParametersFor": ["search", "filters", "sorting", "pagination"],
+      "fragmentsFor": "in-page-anchors",
+      "legacyLinkMigration": "only-when-explicitly-requested"
+    },
+    "backwardsCompatibility": "only-when-explicitly-requested",
+    "pullRequestTitleWorkflow": "ImLunaHey/project-standards/.github/workflows/pr-title.yml"
   },
   "profiles": {
     "typescript-library": {
@@ -77,7 +88,8 @@
       "accessibility-lint",
       "react-doctor-oxlint-rules",
       "component-tests",
-      "playwright-critical-flows"
+      "playwright-critical-flows",
+      "slash-route-navigation-and-deep-links"
     ]
   },
   "forbiddenImplicitActions": [
