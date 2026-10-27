@@ -150,4 +150,7 @@ End with:
 - Never use shadcn/ui, Radix, or another component/headless UI kit.
 - Never create a handwritten barrel file. Generator-owned barrels are allowed.
 - Never ship a desktop-only user-facing interface.
+- Use slash routes for frontend pages, resource details, and navigable tabs.
+  Query parameters are for state within a route, not route selection; hash
+  routing is forbidden. Preserve legacy links during migrations.
 - Never push project changes directly to `main`.

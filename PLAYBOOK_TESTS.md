@@ -82,3 +82,17 @@ anything left unresolved.
 The agent treats package publishing and deployment as separate state-changing
 actions. A migration PR may update their configuration but never publishes or
 deploys without explicit approval.
+
+## Frontend routing
+
+Given a repository dashboard, the agent uses routes such as
+`/repositories/owner/name/pulls/42` and
+`/repositories/owner/name/standards`, not `/?view=pulls&repo=owner/name`
+or `/#/repositories`. A filter such as `?state=open` is allowed on a
+route; a fragment such as `#discussion` may target content within the page.
+
+Given an existing query-routed application, the agent migrates navigation
+within the current framework, redirects old links to canonical paths, keeps
+relevant filters, and tests reloads, direct links, browser back/forward, invalid
+paths, and production server routing. It does not rewrite the framework or
+introduce a second routing system.

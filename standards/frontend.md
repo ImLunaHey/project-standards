@@ -9,6 +9,25 @@
 - Use React state and context first. Add Zustand only when shared client state
   has become genuinely complex. Keep server state, URL state, and local UI
   state distinct.
+- Use slash-separated pathname routes for pages, resource details, and
+  navigable tabs: for example, `/repositories/owner/name/standards` and
+  `/repositories/owner/name/pulls/42`. Do not select pages, resources, or
+  navigable tabs with query parameters such as `?view=`, `?repo=`, or
+  `?tab=`, or with hash routes such as `#/repositories`.
+- Reserve query parameters for state within the current route, such as search,
+  filters, sorting, and pagination. URL fragments may identify anchors within
+  a page; they must not act as the application's router. Transient UI state
+  such as an open tooltip does not need its own route.
+- Route parameters must be validated and encoded by the router. Unknown or
+  malformed routes must show an appropriate not-found/error state. Direct
+  links, reloads, and browser back/forward navigation must work in production;
+  configure SPA fallback or server routing without masking API/asset errors.
+- When migrating query/hash navigation, preserve existing bookmarks through
+  redirects or a compatibility handler to the canonical slash routes. Preserve
+  relevant filters. Existing frameworks and package managers remain in place.
+- Add behavior tests for direct entry, reload, tab/detail navigation, history,
+  invalid route parameters, retained filters, and legacy-link redirects when
+  applicable.
 - Use Tailwind CSS exclusively for application styling.
 - Never add shadcn/ui, Radix, or another component/headless UI kit. Implement
   components from scratch with semantic platform primitives. Colocate

@@ -23,6 +23,10 @@
   those capabilities are needed.
 - Prefer React state/context; add Zustand only for genuinely complex shared
   client state.
+- Use slash pathname routes for pages, resources, and navigable tabs. Query
+  parameters are only for state within a route (search, filters, sorting,
+  pagination); do not use query/hash routing. Preserve legacy links on
+  migration and test direct links, reloads, browser history, and invalid paths.
 - Use Tailwind only. Build every component from scratch with accessible web
   primitives. Do not install shadcn/ui, Radix, or another component/headless UI
   kit. Use Lucide icons.

@@ -29,6 +29,10 @@
       generator configuration and is not edited manually.
 - [ ] Frontends meet WCAG 2.2 AA, fail accessibility lint, remain mobile-first,
       and use custom Tailwind components without component/headless UI kits.
+- [ ] Pages, resource details, and navigable tabs use slash routes; query/hash
+      routing is replaced without breaking existing bookmarks. Filters stay in
+      query parameters, and direct entry, reload, history, and invalid paths
+      are tested against the deployment contract.
 - [ ] Published package exports and packed files are validated.
 - [ ] Rust passes fmt, Clippy with warnings denied, cargo-nextest, and doc tests.
 - [ ] CI has least privilege and pins actions to full commit SHAs.

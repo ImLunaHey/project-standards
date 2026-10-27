@@ -60,6 +60,18 @@ for (const prompt of ['auto.md', 'new-project.md', 'migrate-project.md']) {
   }
 }
 
+if (
+  manifest?.defaults?.frontendNavigation?.pagesAndResources !== 'slash-path-routes' ||
+  manifest?.defaults?.frontendNavigation?.navigableTabs !== 'slash-path-routes' ||
+  manifest?.defaults?.frontendNavigation?.queryParameterRouting !== 'forbidden' ||
+  manifest?.defaults?.frontendNavigation?.hashRouting !== 'forbidden'
+) {
+  failures.push('standards.json: pages, resources, and navigable tabs must use slash routes');
+}
+if (!manifest?.requiredValidation?.frontend?.includes('slash-route-navigation-and-deep-links')) {
+  failures.push('standards.json: frontend validation must cover slash routes and deep links');
+}
+
 if (manifest?.defaults?.typescriptTestRunner !== 'vitest') {
   failures.push('standards.json: TypeScript test runner must be Vitest');
 }

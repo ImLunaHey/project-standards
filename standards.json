@@ -34,7 +34,16 @@
     "typescriptLogger": "evlog",
     "rustLogger": "tracing",
     "preserveExistingPackageManager": true,
-    "preserveExistingFramework": true
+    "preserveExistingFramework": true,
+    "frontendNavigation": {
+      "pagesAndResources": "slash-path-routes",
+      "navigableTabs": "slash-path-routes",
+      "queryParameterRouting": "forbidden",
+      "hashRouting": "forbidden",
+      "queryParametersFor": ["search", "filters", "sorting", "pagination"],
+      "fragmentsFor": "in-page-anchors",
+      "legacyLinkMigration": "redirect-to-canonical-path"
+    }
   },
   "profiles": {
     "typescript-library": {
@@ -77,7 +86,8 @@
       "accessibility-lint",
       "react-doctor-oxlint-rules",
       "component-tests",
-      "playwright-critical-flows"
+      "playwright-critical-flows",
+      "slash-route-navigation-and-deep-links"
     ]
   },
   "forbiddenImplicitActions": [
