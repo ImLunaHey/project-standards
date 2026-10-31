@@ -35,8 +35,18 @@
   in the CVA declaration, derive props with `VariantProps`, and use `cn` to
   merge its result with caller classes instead of branching through class
   strings manually.
-- Implement `cn` with clsx and tailwind-merge, placing caller classes last.
-  Reuse shared native Button, Input, Select, Textarea, and Field primitives;
+- Install the [`cn` package](https://github.com/shadcn-ui/cn) for Tailwind v4
+  projects (`pnpm add cn` in new projects). Import `{ cn }` directly from `cn`
+  and pass caller classes last. Keep CVA for variants; do not recreate the
+  clsx/tailwind-merge wrapper or add a re-export-only helper. The package does
+  not require shadcn/ui.
+- Preserve the existing Tailwind major during migration. Tailwind v3 projects
+  retain a compatible merger (`tailwind-merge` v2) until an upgrade is
+  requested. For eligible migrations, inspect custom merge configuration,
+  verify affected states, and remove old direct dependencies only when no
+  remaining imports require them. Use `cn/config` for custom merge rules when
+  needed; do not add build plugins or dependency aliases by default.
+- Reuse shared native Button, Input, Select, Textarea, and Field primitives;
   preserve native attributes, events, accessibility, and required ref access.
   Default buttons to `type="button"`. Use links for navigation. Put recurring
   appearances in variants rather than copying recipes or important overrides

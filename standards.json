@@ -17,7 +17,11 @@
     "apiStyle": "rest-openapi",
     "graphql": "forbidden",
     "componentVariantUtility": "class-variance-authority",
-    "componentClassUtilities": ["clsx", "tailwind-merge"],
+    "componentClassUtilities": ["cn"],
+    "componentClassUtilityCompatibility": {
+      "tailwindMajor": 4,
+      "tailwind3": "preserve-compatible-merger-until-requested-upgrade"
+    },
     "frontendDesign": {
       "theme": "system-aware-light-and-dark",
       "darkCanvas": "#000000",

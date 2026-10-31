@@ -36,7 +36,9 @@ them. Do not invent a remembered or approximate version of the standards.
 
 For user interfaces, apply the component and visual design rules in the
 [frontend standard](standards/frontend.md): shared native primitives, typed
-CVA variants, `cn` using clsx and tailwind-merge, and semantic theme tokens.
+CVA variants, direct imports from the `cn` package for Tailwind v4, and semantic
+theme tokens. Preserve existing Tailwind majors and compatible mergers during
+migration; follow the frontend standard's package compatibility guidance.
 New interfaces default to a true-black dark canvas with neutral gray surfaces,
 restrained product accents, and system-aware light/dark themes. Preserve an
 existing product's visual identity during migration unless a redesign is

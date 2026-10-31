@@ -22,10 +22,12 @@ Additional constraints: [deployment target, framework, database, compatibility, 
 Read the canonical playbook and every relevant linked standard before editing.
 Preserve explicit repository-local decisions. Run all applicable validation.
 For new interfaces, apply the frontend component and visual design rules:
-shared native controls, CVA variants, semantic tokens, a true-black dark canvas
-with neutral gray surfaces, and system-aware light/dark themes. In migrations,
-preserve existing visual identity unless a redesign is requested. Check changed
-components in both themes at phone, tablet, and desktop widths.
+shared native controls, CVA variants, direct cn package imports for Tailwind v4,
+semantic tokens, a true-black dark canvas with neutral gray surfaces, and
+system-aware light/dark themes. Preserve compatible mergers for Tailwind v3.
+In migrations, preserve existing visual identity unless a redesign is
+requested. Check changed components in both themes at phone, tablet, and
+desktop widths.
 Use a luna/* branch, Conventional Commits, and a pull request. Never push
 project changes to main. Do not merge, publish, deploy, archive, or change
 visibility without asking.

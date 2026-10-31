@@ -7,7 +7,8 @@ Required outcome:
 - Vite, React, and TanStack Router for client-only apps; TanStack Start only
   when a TypeScript backend is required
 - Tailwind-only custom components with no UI or headless component kit
-- shared native controls, CVA variants, and `cn` using clsx and tailwind-merge
+- shared native controls, CVA variants, and direct `cn` package imports for
+  Tailwind v4; preserve compatible mergers in existing Tailwind v3 projects
 - semantic theme tokens, true-black dark canvas, neutral gray surfaces, and
   restrained product accents for new interfaces; preserve existing visual
   identity during migration unless a redesign is requested

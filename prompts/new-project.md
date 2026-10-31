@@ -22,8 +22,9 @@ field explicitly authorizes it. Never push project work to main. Do not merge,
 publish, or deploy.
 
 For user interfaces, follow the frontend component and visual design rules:
-shared native controls, CVA variants, semantic tokens, a true-black dark canvas
-with neutral gray surfaces, restrained product accents, and system-aware
-light/dark themes. Honor explicit product design requirements. Check component
-states in both themes at phone, tablet, and desktop widths.
+shared native controls, CVA variants, direct cn package imports for Tailwind v4,
+semantic tokens, a true-black dark canvas with neutral gray surfaces,
+restrained product accents, and system-aware light/dark themes. Honor explicit
+product design requirements. Check component states in both themes at phone,
+tablet, and desktop widths.
 ```

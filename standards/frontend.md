@@ -49,8 +49,18 @@
   use `cn` only to merge the generated classes with a caller's `className`.
   Avoid nested ternaries or manually assembled style strings for component
   variants.
-- Implement `cn` with `clsx` and `tailwind-merge`. Pass caller classes last.
-  Use named variants for recurring appearances and `className` for contextual
+- Install the [`cn` package](https://github.com/shadcn-ui/cn) for Tailwind v4
+  projects (`pnpm add cn` in new projects). Import `{ cn }` directly from `cn`;
+  do not recreate a `clsx`/`tailwind-merge` wrapper or add a re-export-only
+  utility module. This class-merging utility does not require shadcn/ui.
+  Keep CVA for variants and pass caller classes last to `cn`.
+- Preserve the existing Tailwind major during migration. Tailwind v3 projects
+  retain a compatible merger (`tailwind-merge` v2) until an upgrade is
+  requested. For eligible migrations, inspect custom merge configuration and
+  verify affected component states; remove old direct dependencies only when
+  no remaining imports require them. Use `cn/config` for custom merge rules
+  when needed; do not add build plugins or dependency aliases by default.
+- Use named variants for recurring appearances and `className` for contextual
   layout adjustments. Do not paste a shared control's full style recipe into
   its callers or rely on repeated important overrides to restyle it.
 - Extract repeated panel, heading, field, and status treatments into shared
