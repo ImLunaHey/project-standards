@@ -37,13 +37,20 @@ visibility, or mutate unrelated repository settings.
 - Rust is the default backend; use TanStack Start only when a TypeScript
   backend is explicitly required.
 - REST/OpenAPI only. Never GraphQL.
-- Tailwind with custom components only. Never shadcn/ui, Radix, or another
+- Tailwind v4 with custom components only. Upgrade existing Tailwind v3
+  workspaces in the current migration PR. Never shadcn/ui, Radix, or another
   component/headless UI kit.
 - Never create handwritten barrel files. Generator-owned barrels are allowed
   but must not be edited manually.
 - Every user-facing interface is mobile-first and meets WCAG 2.2 AA.
+- Every PR with UI work includes labeled Before and After screenshots under
+  Validation; follow the delivery reference for capture and GitHub CLI attachment
+  capability checks, CLI upgrades when needed, and upload verification.
 - Every project change uses a `luna/*` branch, Conventional Commits, and a PR.
   Never push project changes directly to `main`.
+- Every repository installs and uses the
+  [shared PR template](assets/pull_request_template.md) at
+  `.github/pull_request_template.md`, following the delivery reference.
 
 Finish by reporting the outcome, exact validation run, deviations, PR link when
 one was created, and the next decision needed from the user.

@@ -27,14 +27,62 @@
   parameters are only for state within a route (search, filters, sorting,
   pagination); do not use query/hash routing. Add legacy redirects only when
   explicitly requested. Test direct links, reloads, browser history, and invalid paths.
-- Use Tailwind only. Build every component from scratch with accessible web
-  primitives. Do not install shadcn/ui, Radix, or another component/headless UI
+- Use Tailwind v4 only. Upgrade existing v3 frontend workspaces in the current
+  migration PR; do not defer this required work under framework or
+  dependency-major preservation rules. Update configuration, plugins, and
+  affected styles, preserve visual identity, and validate builds and component
+  states. Check workspace dependencies and lockfile resolutions for remaining
+  v3 usage.
+- Build every component from scratch with accessible web primitives. Do not
+  install shadcn/ui, Radix, or another component/headless UI
   kit. Use Lucide icons.
 - Use CVA (`class-variance-authority`) for reusable components with named
   variants, sizes, or compound visual states. Keep variant classes and defaults
   in the CVA declaration, derive props with `VariantProps`, and use `cn` to
   merge its result with caller classes instead of branching through class
   strings manually.
+- Install the [`cn` package](https://github.com/shadcn-ui/cn) for Tailwind v4
+  projects (`pnpm add cn` in new projects). Import `{ cn }` directly from `cn`
+  and pass caller classes last. Keep CVA for variants; do not recreate the
+  clsx/tailwind-merge wrapper or add a re-export-only helper. The package does
+  not require shadcn/ui.
+- During migration to v4 and `cn`, inspect custom merge configuration,
+  verify affected states, and remove old direct dependencies only when no
+  remaining imports require them. Use `cn/config` for custom merge rules when
+  needed; do not add build plugins or dependency aliases by default.
+- Reuse shared native Button, Input, Select, Textarea, and Field primitives;
+  preserve native attributes, events, accessibility, and required ref access.
+  Default buttons to `type="button"`. Use links for navigation. Put recurring
+  appearances in variants rather than copying recipes or important overrides
+  into callers. Extract repeated panel, heading, and status treatments when
+  reuse exists; keep one-off feature layouts local.
+- Define hover, focus-visible, disabled, and applicable selected, pending,
+  invalid, and destructive states with the component. Link labels, hints, and
+  errors to controls, and pair status colors with text or another non-color
+  cue. Default control minimum height to `2.75rem` (44px at the default root
+  size); check any compact exception for accessible targeting in context.
+- New interfaces default to a true-black (`#000000`) dark canvas and neutral
+  grayscale raised surfaces, without navy, slate-blue, or purple surface tints.
+  Support system-aware light/dark themes. Use semantic Tailwind theme tokens
+  for surfaces, borders, text, accent, focus, and status; specialist styling
+  APIs must reuse those tokens. Keep accents restrained and product-specific;
+  orange is not universal and blue can still serve an intentional accent role.
+- Build hierarchy through spacing, thin borders, subtle surface differences,
+  and modest consistent radii. Keep shadows secondary. Use readable sans-serif
+  typography, monospace for technical content, and smaller text for metadata.
+  Match density to the task and reuse a project spacing/type scale; do not
+  shrink essential text to fit. Keep icons and motion functional, and reflow
+  layouts without losing essential content or actions.
+- Preserve an existing product's visual identity during migration unless a
+  redesign is requested. Check affected components and consuming screens in
+  both themes at phone, tablet, and desktop widths, including keyboard focus,
+  contrast, text zoom, overflow, and applicable states. Combine visual review,
+  behavior tests, and automated accessibility checks.
+- Every PR with UI work includes labeled Before and After screenshots of the
+  original and final revisions under Validation, including refactors and
+  styling migrations. Match capture conditions and cover affected theme and
+  responsive variations. Follow the [delivery workflow](delivery.md#ui-screenshot-evidence)
+  to check CLI attachment support, upgrade when missing, and verify uploads.
 - Colocate feature components, hooks, schemas, and tests. Put global primitives
   in a shared `components` directory and keep one React component per file.
 - Meet WCAG 2.2 AA and fail lint on violations. Support keyboard navigation,

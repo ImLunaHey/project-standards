@@ -45,16 +45,32 @@ Adaptable reference configuration lives under [`templates/`](templates).
 
 - Rust with Axum and Tokio is the default backend. TanStack Start is used when
   a TypeScript backend is explicitly required.
-- Frontends use React, Tailwind, and relevant TanStack libraries with custom,
+- Frontends use React, Tailwind v4, and relevant TanStack libraries with custom,
   accessible components. GraphQL and component/headless UI kits are forbidden.
+- New interfaces use shared native controls, typed CVA variants, the `cn`
+  package for Tailwind v4, and semantic theme tokens. Dark mode defaults to
+  true black with neutral gray surfaces and restrained product accents;
+  system-aware light mode is also required.
+  Migrations preserve existing visual identity unless a redesign is requested.
+  See the [component and visual design rules](standards/frontend.md).
 - pnpm, Oxfmt, Oxlint, Vitest, Mise, Renovate, and Turborepo are the TypeScript
   and monorepo defaults.
 - Public original work defaults to the MIT license unless the project brief
   requires another license.
-- Existing package managers and frameworks are preserved during migrations.
+- Existing package managers and frameworks are preserved during migrations;
+  Tailwind v3 must be upgraded to v4 in the current migration PR.
 - CI uses least privilege and runs the same checks developers run locally.
 - All project changes use `luna/*` branches and Conventional Commit PRs. Agents
   never push project changes to `main` or merge without explicit approval.
+- Every repository uses the [shared PR template](templates/github/pull_request_template.md)
+  at `.github/pull_request_template.md`, covering Summary, Validation, and
+  Risks and follow-ups. New projects install it; migrations reconcile existing
+  templates while retaining necessary project-specific requirements.
+- Every UI PR includes labeled Before/After screenshots under Validation,
+  uploaded through `gh pr create` or `gh pr edit` with `--attach`. Check support
+  on the intended command, update the active CLI if needed, and verify both
+  uploads. See the
+  [GitHub standard](standards/github.md) for capture and attachment requirements.
 
 Machine-readable defaults are available in [`standards.json`](standards.json).
 

@@ -34,6 +34,29 @@ as the fuller explanation when the two appear ambiguous.
 If the canonical files cannot be accessed, stop and ask the user to provide
 them. Do not invent a remembered or approximate version of the standards.
 
+For user interfaces, apply the component and visual design rules in the
+[frontend standard](standards/frontend.md): shared native primitives, typed
+CVA variants, Tailwind v4, direct imports from the `cn` package, and semantic
+theme tokens. Upgrade existing Tailwind v3 projects to v4 in the current
+migration PR; this is required work, not a deferred dependency-major change.
+New interfaces default to a true-black dark canvas with neutral gray surfaces,
+restrained product accents, and system-aware light/dark themes. Preserve an
+existing product's visual identity during migration unless a redesign is
+requested. Validate component states in both themes and responsive layouts.
+
+Every PR containing UI work, including refactors and styling migrations,
+includes labeled Before and After screenshots under Validation. Capture the
+baseline before editing, or reconstruct the original revision, and capture
+the final revision with matching states, data, themes, and viewports. Identify
+the route or equivalent user flow and the revisions shown.
+Cover affected theme and responsive variations; refresh After screenshots
+after further UI edits. For a new interface, show its honest empty, starter,
+or predecessor state. An unavailable baseline is missing evidence, not a waiver.
+Follow the [GitHub screenshot workflow](standards/github.md#ui-screenshot-evidence): verify `--attach`
+in the intended `gh pr create --help` or `gh pr edit --help`, update the active
+CLI installation if missing and recheck, then use repeated `--attach` flags
+and verify both uploads in the PR.
+
 ## Detect the operating mode
 
 Inspect the current working directory without modifying it.
@@ -65,7 +88,9 @@ Do not initialize a nested repository inside another checkout.
 6. Scaffold the smallest working vertical slice. Remove generated starter
    copy, placeholder assets, and failing placeholder tests.
 7. Add repository essentials: README, license when applicable, `.gitignore`,
-   environment example, local quality commands, tests, and CI.
+   environment example, local quality commands, tests, CI, and the
+   [shared PR template](templates/github/pull_request_template.md) at
+   `.github/pull_request_template.md`.
 8. Install dependencies using the selected package manager and commit exactly
    one lockfile.
 9. Run format, lint, type-check, test, build, and package checks that apply.
@@ -97,14 +122,19 @@ Do not initialize a nested repository inside another checkout.
 5. Create a focused `luna/<kebab-case-description>` branch.
 6. Apply the smallest coherent migration. Preserve the existing framework and
    package manager unless changing them is explicitly requested or required to
-   fix a demonstrated problem.
+   fix a demonstrated problem. Tailwind v3-to-v4 upgrades are required in the
+   current PR; framework preservation must not defer them.
 7. Do not mix product features, broad rewrites, or unrelated dependency majors
-   into a standards PR.
+   into a standards PR. Install or reconcile the shared PR template in this
+   PR, retaining necessary repository-specific requirements as described in
+   the [GitHub standard](standards/github.md).
 8. Run the full applicable validation set and inspect the final diff for
    secrets, generated noise, and accidental behavior changes.
 9. Use Conventional Commits, then push and open a PR whose title also follows
-   Conventional Commits. Include summary, rationale, validation, known
-   deviations, and follow-up work. Link the PR to the active T3 Code thread
+   Conventional Commits. Complete the shared template's Summary, Validation,
+   and Risks and follow-ups sections, including rationale and any deviations.
+   Supply this body explicitly for CLI/API-created PRs, including the PR that
+   installs the template. Link the PR to the active T3 Code thread
    when the tool is available.
 10. Never merge, publish a package, deploy, archive, or change repository
     visibility without explicit approval.
@@ -131,6 +161,7 @@ Run every applicable category and report the exact commands:
 - dependency/security audit appropriate to the ecosystem
 - runtime smoke test when packaging or module format changes
 - accessibility lint and runtime tests for user interfaces
+- labeled Before/After screenshots uploaded and verified in every UI PR
 
 If a check cannot run, explain why. Do not describe unrun checks as passing.
 
@@ -148,6 +179,7 @@ End with:
 
 - Never use GraphQL.
 - Never use shadcn/ui, Radix, or another component/headless UI kit.
+- Use Tailwind v4. Upgrade existing v3 projects in the current migration PR.
 - Never create a handwritten barrel file. Generator-owned barrels are allowed.
 - Never ship a desktop-only user-facing interface.
 - Use slash routes for frontend pages, resource details, and navigable tabs.

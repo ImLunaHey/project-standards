@@ -13,6 +13,16 @@ Required outcome:
 - Better Auth compatibility appropriate to the backend language
 - PostgreSQL or SQLite chosen from deployment needs rather than habit
 - mobile-first WCAG 2.2 AA UI with light and dark themes
+- Tailwind v4; upgrade existing v3 workspaces in the current migration PR
+- shared native controls, CVA variants, and direct `cn` package imports
+- semantic theme tokens, true-black dark canvas, neutral gray surfaces, and
+  restrained product accents for new interfaces; preserve existing visual
+  identity during migration unless a redesign is requested
+- component states and consuming screens visually checked in both themes at
+  phone, tablet, and desktop widths
+- labeled Before/After screenshots in every UI PR's Validation section,
+  uploaded with `gh pr create` or `gh pr edit` using `--attach` and verified by the
+  [GitHub screenshot workflow](../standards/github.md)
 - Dockerfiles, local Docker Compose dependencies, CI, and complete README
 
 Frontend navigation follows the [frontend standard](../standards/frontend.md):
