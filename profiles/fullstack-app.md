@@ -20,6 +20,9 @@ Required outcome:
   identity during migration unless a redesign is requested
 - component states and consuming screens visually checked in both themes at
   phone, tablet, and desktop widths
+- labeled Before/After screenshots in every UI PR's Validation section,
+  uploaded with `gh pr create` or `gh pr edit` using `--attach` and verified by the
+  [GitHub screenshot workflow](../standards/github.md)
 - Dockerfiles, local Docker Compose dependencies, CI, and complete README
 
 Frontend navigation follows the [frontend standard](../standards/frontend.md):

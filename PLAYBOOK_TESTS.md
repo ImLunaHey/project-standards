@@ -41,6 +41,43 @@ exact check results, including skipped checks, removes instructional comments,
 and updates the description when the diff changes. It never invents successful
 validation results to fill the template.
 
+## UI screenshot evidence
+
+Given any UI change, including a component refactor or styling migration with
+no intended appearance change, the agent captures Before screenshots before
+editing or reconstructs the original revision. It captures After screenshots
+from the final revision with matching states, data, themes, and viewports,
+identifying routes or equivalent flows and covering affected theme and
+responsive variations. It uploads both sets with repeated `gh pr create` or
+`gh pr edit` `--attach` flags and verifies
+labeled Before/After images under Validation in the PR body. Further UI edits
+require refreshed After screenshots.
+
+Given a new interface, the agent captures and labels its honest empty,
+starter, or predecessor state. It does not fabricate a prior product. If a
+baseline cannot be captured or reconstructed, it reports missing evidence and
+does not claim the screenshot requirement is satisfied.
+
+Given documentation-only work with no UI changes, the agent completes the
+shared PR template without manufacturing screenshots.
+
+## GitHub CLI missing attachment support
+
+Given an installed CLI whose intended `gh pr create --help` or
+`gh pr edit --help` lacks `--attach`, the agent updates the active installation
+and checks that command's help again before uploading. An old version does
+not waive screenshots. If the update fails or support remains unavailable,
+the agent reports the unresolved upload requirement without claiming success.
+
+## Partial screenshot upload
+
+Given an attachment failure after `gh pr create` or `gh pr edit` has already
+created or updated the PR, the agent inspects the existing PR and its current
+body before retrying. It preserves the description and successful attachments,
+retries missing uploads on that PR, and verifies both images. It neither
+creates a duplicate PR nor treats the initial nonzero exit as proof that
+nothing changed.
+
 ## Frontend with a Rust backend
 
 Given a web product that needs a backend without a TypeScript-backend

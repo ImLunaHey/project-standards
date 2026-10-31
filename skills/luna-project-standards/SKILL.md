@@ -43,6 +43,9 @@ visibility, or mutate unrelated repository settings.
 - Never create handwritten barrel files. Generator-owned barrels are allowed
   but must not be edited manually.
 - Every user-facing interface is mobile-first and meets WCAG 2.2 AA.
+- Every PR with UI work includes labeled Before and After screenshots under
+  Validation; follow the delivery reference for capture and GitHub CLI attachment
+  capability checks, CLI upgrades when needed, and upload verification.
 - Every project change uses a `luna/*` branch, Conventional Commits, and a PR.
   Never push project changes directly to `main`.
 - Every repository installs and uses the

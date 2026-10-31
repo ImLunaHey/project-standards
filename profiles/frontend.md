@@ -23,6 +23,9 @@ Required outcome:
 - Vitest and Testing Library behavior tests plus Playwright for important flows
 - component states and consuming screens visually checked in light/dark themes
   at phone, tablet, and desktop widths
+- labeled Before/After screenshots in every UI PR's Validation section,
+  uploaded with `gh pr create` or `gh pr edit` using `--attach` and verified by the
+  [GitHub screenshot workflow](../standards/github.md)
 - Oxlint with the applicable `oxlint-plugin-react-doctor` rule sets
 - production build verified
 - README with local development and deployment instructions

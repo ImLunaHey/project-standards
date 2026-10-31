@@ -44,6 +44,19 @@ restrained product accents, and system-aware light/dark themes. Preserve an
 existing product's visual identity during migration unless a redesign is
 requested. Validate component states in both themes and responsive layouts.
 
+Every PR containing UI work, including refactors and styling migrations,
+includes labeled Before and After screenshots under Validation. Capture the
+baseline before editing, or reconstruct the original revision, and capture
+the final revision with matching states, data, themes, and viewports. Identify
+the route or equivalent user flow and the revisions shown.
+Cover affected theme and responsive variations; refresh After screenshots
+after further UI edits. For a new interface, show its honest empty, starter,
+or predecessor state. An unavailable baseline is missing evidence, not a waiver.
+Follow the [GitHub screenshot workflow](standards/github.md#ui-screenshot-evidence): verify `--attach`
+in the intended `gh pr create --help` or `gh pr edit --help`, update the active
+CLI installation if missing and recheck, then use repeated `--attach` flags
+and verify both uploads in the PR.
+
 ## Detect the operating mode
 
 Inspect the current working directory without modifying it.
@@ -148,6 +161,7 @@ Run every applicable category and report the exact commands:
 - dependency/security audit appropriate to the ecosystem
 - runtime smoke test when packaging or module format changes
 - accessibility lint and runtime tests for user interfaces
+- labeled Before/After screenshots uploaded and verified in every UI PR
 
 If a check cannot run, explain why. Do not describe unrun checks as passing.
 

@@ -18,6 +18,10 @@ The shared PR template is required in every repository: install it at
 requirements within or after its shared sections. This repository's active
 template and the skill asset are exact copies of the canonical template;
 `pnpm validate` rejects drift between them.
+Every PR with UI work includes labeled Before and After screenshots under
+Validation, uploaded with `--attach` on `gh pr create` or `gh pr edit` after
+checking support; upgrade the CLI first when the flag is missing, as detailed
+in the GitHub standard.
 
 Place `rust/nextest.toml` at `.config/nextest.toml` in a Cargo workspace.
 For React projects, use `typescript/oxlint-react.config.ts` instead of

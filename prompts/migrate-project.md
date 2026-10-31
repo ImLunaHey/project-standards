@@ -29,6 +29,14 @@ under framework or dependency-major preservation rules.
 Preserve the existing visual identity unless a redesign is requested. Do not
 recolor the product merely to match the new-interface true-black default.
 Check affected components in both themes at phone, tablet, and desktop widths.
+Every UI PR, including refactors and styling migrations, must include labeled
+Before/After screenshots under Validation. Capture the baseline before edits
+(or reconstruct the original revision) and the final UI with matching capture
+conditions, covering affected themes and responsive layouts. Missing baseline
+evidence is not a waiver. Refresh After screenshots after UI edits. Follow the
+GitHub standard: check --attach in gh pr create --help or gh pr edit --help for
+the intended command, update the active CLI if missing and recheck, then upload
+with repeated --attach and verify both images in the PR.
 Use a luna/* branch, Conventional Commits, and Vitest for TypeScript tests. Run
 every applicable check and open/link a Conventional Commit PR with validation
 and deviations. Never push to main. Do not merge, publish, deploy, archive, or

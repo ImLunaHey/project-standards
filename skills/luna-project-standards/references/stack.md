@@ -78,6 +78,11 @@
   both themes at phone, tablet, and desktop widths, including keyboard focus,
   contrast, text zoom, overflow, and applicable states. Combine visual review,
   behavior tests, and automated accessibility checks.
+- Every PR with UI work includes labeled Before and After screenshots of the
+  original and final revisions under Validation, including refactors and
+  styling migrations. Match capture conditions and cover affected theme and
+  responsive variations. Follow the [delivery workflow](delivery.md#ui-screenshot-evidence)
+  to check CLI attachment support, upgrade when missing, and verify uploads.
 - Colocate feature components, hooks, schemas, and tests. Put global primitives
   in a shared `components` directory and keep one React component per file.
 - Meet WCAG 2.2 AA and fail lint on violations. Support keyboard navigation,

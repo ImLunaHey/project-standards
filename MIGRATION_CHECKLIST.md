@@ -8,6 +8,9 @@
 - [ ] Select Rust/Axum by default for backend work; use TanStack Start only for
       an explicitly required TypeScript backend.
 - [ ] Record existing check results before editing.
+- [ ] For UI work, capture Before screenshots before editing, or reconstruct
+      the original revision. Record routes, states, data, themes, and viewports
+      for a matching After capture; an unavailable baseline is missing evidence.
 - [ ] Identify published packages or deployed services.
 
 ## Repository surface
@@ -56,6 +59,13 @@
 - [ ] PR completes the shared Summary, Validation, and Risks and follow-ups
       sections, explaining rationale, exact checks/results, and deviations.
       Instructional comments are removed; no unrun check is claimed as passing.
+- [ ] Every UI PR, including refactors and styling migrations, contains labeled
+      Before/After screenshots under Validation, covering affected themes and
+      responsive layouts. After screenshots reflect the final UI revision.
+- [ ] For UI work, verify `--attach` in the intended `gh pr create --help` or
+      `gh pr edit --help`; update the active CLI installation if missing and
+      recheck. Upload with repeated `--attach` flags and verify both images in
+      the PR following the [GitHub standard](standards/github.md).
 - [ ] PR is linked to the T3 Code thread when supported.
 - [ ] Nothing is merged, published, deployed, archived, or reconfigured without
       explicit approval.

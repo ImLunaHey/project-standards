@@ -20,6 +20,17 @@
       "adoption": "all-repositories",
       "migration": "reconcile-in-current-pull-request"
     },
+    "uiScreenshotEvidence": {
+      "requiredFor": "all-ui-work",
+      "images": ["before", "after"],
+      "pullRequestSection": "Validation",
+      "uploadTool": "gh",
+      "uploadCommands": ["pr create", "pr edit"],
+      "uploadFlag": "--attach",
+      "capabilityCheck": "intended-command-help",
+      "missingCapability": "upgrade-active-cli-and-recheck",
+      "verifyUploadedPair": true
+    },
     "defaultBackend": "rust-axum-tokio",
     "typescriptBackend": "tanstack-start",
     "apiStyle": "rest-openapi",
@@ -113,6 +124,7 @@
       "component-tests",
       "playwright-critical-flows",
       "component-states-themes-and-responsive-visual-review",
+      "before-and-after-screenshots-attached-to-pull-request",
       "slash-route-navigation-and-deep-links"
     ]
   },

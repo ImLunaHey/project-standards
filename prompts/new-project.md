@@ -31,4 +31,11 @@ semantic tokens, a true-black dark canvas with neutral gray surfaces,
 restrained product accents, and system-aware light/dark themes. Honor explicit
 product design requirements. Check component states in both themes at phone,
 tablet, and desktop widths.
+Every UI PR must include labeled Before/After screenshots under Validation.
+Capture the honest empty/starter/predecessor state before implementation and
+the final UI with matching capture conditions, covering affected themes and
+responsive layouts. Missing baseline evidence is not a waiver. Refresh After
+screenshots after UI edits. Follow the GitHub standard: check --attach in the
+intended gh pr create --help or gh pr edit --help, update the active CLI if
+missing and recheck, then upload with repeated --attach and verify both images.
 ```

@@ -131,6 +131,11 @@ redesign is requested; record proposed visual changes separately.
   contrast, text zoom, overflow, and applicable interaction/data states. Pair
   visual inspection with behavior tests and automated accessibility checks;
   passing an automated scan alone does not establish visual quality.
+- Every PR with UI work includes labeled Before and After screenshots under
+  Validation, even for refactors or styling migrations intended to preserve
+  appearance. Capture the original and final revisions with matched conditions
+  and affected theme/responsive variations; follow the
+  [screenshot capture and CLI upload workflow](github.md#ui-screenshot-evidence).
 - Use `Intl` for dates, numbers, and currencies. Keep user-facing formatting
   localization-ready even when the first language is English.
 - Support the current and previous major releases of Chrome, Firefox, Safari,

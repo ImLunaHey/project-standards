@@ -66,6 +66,11 @@ Adaptable reference configuration lives under [`templates/`](templates).
   at `.github/pull_request_template.md`, covering Summary, Validation, and
   Risks and follow-ups. New projects install it; migrations reconcile existing
   templates while retaining necessary project-specific requirements.
+- Every UI PR includes labeled Before/After screenshots under Validation,
+  uploaded through `gh pr create` or `gh pr edit` with `--attach`. Check support
+  on the intended command, update the active CLI if needed, and verify both
+  uploads. See the
+  [GitHub standard](standards/github.md) for capture and attachment requirements.
 
 Machine-readable defaults are available in [`standards.json`](standards.json).
 
