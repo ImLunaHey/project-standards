@@ -22,9 +22,10 @@ Additional constraints: [deployment target, framework, database, compatibility, 
 Read the canonical playbook and every relevant linked standard before editing.
 Preserve explicit repository-local decisions. Run all applicable validation.
 For new interfaces, apply the frontend component and visual design rules:
-shared native controls, CVA variants, direct cn package imports for Tailwind v4,
+shared native controls, CVA variants, Tailwind v4, direct cn package imports,
 semantic tokens, a true-black dark canvas with neutral gray surfaces, and
-system-aware light/dark themes. Preserve compatible mergers for Tailwind v3.
+system-aware light/dark themes. Upgrade any existing Tailwind v3 workspaces to
+v4 in the current migration PR; do not defer this required upgrade.
 In migrations, preserve existing visual identity unless a redesign is
 requested. Check changed components in both themes at phone, tablet, and
 desktop widths.

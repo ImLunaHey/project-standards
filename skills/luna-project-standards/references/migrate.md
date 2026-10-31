@@ -7,7 +7,9 @@
 3. Run the existing safe checks to distinguish baseline failures from
    migration regressions.
 4. Group gaps as required, recommended, and deferred. Defer framework or
-   runtime replacement unless the user requested it.
+   runtime replacement unless the user requested it. Tailwind v3-to-v4
+   upgrades are required in the current PR, not deferred framework changes.
+   Inspect every frontend workspace and its lockfile resolutions.
 5. Create `luna/<kebab-case-description>` from the intended base.
 6. Apply the smallest coherent migration. Do not mix product features or broad
    rewrites into the standards PR.

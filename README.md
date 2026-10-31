@@ -45,7 +45,7 @@ Adaptable reference configuration lives under [`templates/`](templates).
 
 - Rust with Axum and Tokio is the default backend. TanStack Start is used when
   a TypeScript backend is explicitly required.
-- Frontends use React, Tailwind, and relevant TanStack libraries with custom,
+- Frontends use React, Tailwind v4, and relevant TanStack libraries with custom,
   accessible components. GraphQL and component/headless UI kits are forbidden.
 - New interfaces use shared native controls, typed CVA variants, the `cn`
   package for Tailwind v4, and semantic theme tokens. Dark mode defaults to
@@ -57,7 +57,8 @@ Adaptable reference configuration lives under [`templates/`](templates).
   and monorepo defaults.
 - Public original work defaults to the MIT license unless the project brief
   requires another license.
-- Existing package managers and frameworks are preserved during migrations.
+- Existing package managers and frameworks are preserved during migrations;
+  Tailwind v3 must be upgraded to v4 in the current migration PR.
 - CI uses least privilege and runs the same checks developers run locally.
 - All project changes use `luna/*` branches and Conventional Commit PRs. Agents
   never push project changes to `main` or merge without explicit approval.

@@ -31,10 +31,15 @@
 
 ## Components and styling
 
-- Use Tailwind CSS exclusively for application styling. Keep shared theme
-  tokens in the Tailwind theme; consume them through utilities. When a
-  specialist editor or chart requires its own styling API, reuse the same
-  tokens rather than introducing a separate palette.
+- Use Tailwind CSS v4 exclusively for application styling. Tailwind v3 is
+  unsupported. Upgrade any v3 frontend workspace to v4 in the current migration
+  PR; do not defer it under framework or dependency-major preservation rules.
+  Update configuration, plugins, and affected styles, preserve the product's
+  visual identity, and validate the build and representative component states.
+  Check workspace dependencies and lockfile resolutions for remaining v3 usage.
+- Keep shared theme tokens in the Tailwind theme; consume them through
+  utilities. When a specialist editor or chart requires its own styling API,
+  reuse the same tokens rather than introducing a separate palette.
 - Never add shadcn/ui, Radix, or another component/headless UI kit. Implement
   components from scratch with semantic platform primitives. Colocate
   feature-specific components; place genuinely global primitives such as
@@ -54,9 +59,7 @@
   do not recreate a `clsx`/`tailwind-merge` wrapper or add a re-export-only
   utility module. This class-merging utility does not require shadcn/ui.
   Keep CVA for variants and pass caller classes last to `cn`.
-- Preserve the existing Tailwind major during migration. Tailwind v3 projects
-  retain a compatible merger (`tailwind-merge` v2) until an upgrade is
-  requested. For eligible migrations, inspect custom merge configuration and
+- During migration to v4 and `cn`, inspect custom merge configuration and
   verify affected component states; remove old direct dependencies only when
   no remaining imports require them. Use `cn/config` for custom merge rules
   when needed; do not add build plugins or dependency aliases by default.

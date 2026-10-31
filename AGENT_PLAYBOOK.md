@@ -36,9 +36,9 @@ them. Do not invent a remembered or approximate version of the standards.
 
 For user interfaces, apply the component and visual design rules in the
 [frontend standard](standards/frontend.md): shared native primitives, typed
-CVA variants, direct imports from the `cn` package for Tailwind v4, and semantic
-theme tokens. Preserve existing Tailwind majors and compatible mergers during
-migration; follow the frontend standard's package compatibility guidance.
+CVA variants, Tailwind v4, direct imports from the `cn` package, and semantic
+theme tokens. Upgrade existing Tailwind v3 projects to v4 in the current
+migration PR; this is required work, not a deferred dependency-major change.
 New interfaces default to a true-black dark canvas with neutral gray surfaces,
 restrained product accents, and system-aware light/dark themes. Preserve an
 existing product's visual identity during migration unless a redesign is
@@ -107,7 +107,8 @@ Do not initialize a nested repository inside another checkout.
 5. Create a focused `luna/<kebab-case-description>` branch.
 6. Apply the smallest coherent migration. Preserve the existing framework and
    package manager unless changing them is explicitly requested or required to
-   fix a demonstrated problem.
+   fix a demonstrated problem. Tailwind v3-to-v4 upgrades are required in the
+   current PR; framework preservation must not defer them.
 7. Do not mix product features, broad rewrites, or unrelated dependency majors
    into a standards PR.
 8. Run the full applicable validation set and inspect the final diff for
@@ -158,6 +159,7 @@ End with:
 
 - Never use GraphQL.
 - Never use shadcn/ui, Radix, or another component/headless UI kit.
+- Use Tailwind v4. Upgrade existing v3 projects in the current migration PR.
 - Never create a handwritten barrel file. Generator-owned barrels are allowed.
 - Never ship a desktop-only user-facing interface.
 - Use slash routes for frontend pages, resource details, and navigable tabs.

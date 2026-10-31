@@ -28,7 +28,12 @@
 - [ ] No handwritten barrel files are added; any generated barrel has committed
       generator configuration and is not edited manually.
 - [ ] Frontends meet WCAG 2.2 AA, fail accessibility lint, remain mobile-first,
-      and use custom Tailwind components without component/headless UI kits.
+      and use custom Tailwind v4 components without component/headless UI kits.
+- [ ] Every frontend workspace uses Tailwind v4. Any v3 usage is upgraded in
+      this PR, including affected configuration, plugins, and styles; inspect
+      workspace dependencies and lockfile resolutions for remaining v3 usage.
+- [ ] Components import `cn` from its installed package. Custom merge rules,
+      builds, and affected component states are validated after migration.
 - [ ] Pages, resource details, and navigable tabs use slash routes; query/hash
       routing is replaced; add compatibility redirects only when the user explicitly
       requests them. Filters stay in

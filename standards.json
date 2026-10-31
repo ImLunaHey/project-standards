@@ -16,12 +16,10 @@
     "typescriptBackend": "tanstack-start",
     "apiStyle": "rest-openapi",
     "graphql": "forbidden",
+    "tailwindMajor": 4,
+    "tailwindV3Migration": "required-upgrade-in-current-pull-request",
     "componentVariantUtility": "class-variance-authority",
     "componentClassUtilities": ["cn"],
-    "componentClassUtilityCompatibility": {
-      "tailwindMajor": 4,
-      "tailwind3": "preserve-compatible-merger-until-requested-upgrade"
-    },
     "frontendDesign": {
       "theme": "system-aware-light-and-dark",
       "darkCanvas": "#000000",

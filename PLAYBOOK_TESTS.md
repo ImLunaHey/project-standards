@@ -36,13 +36,28 @@ framework.
 ## UI implementation
 
 Given a request for a dialog, menu, form, or reusable primitive, the agent
-implements an accessible custom Tailwind component. It does not install
+implements an accessible custom Tailwind v4 component. It does not install
 shadcn/ui, Radix, or another component/headless UI kit.
 
 Given a reusable component with named variants, sizes, or compound visual
 states, the agent defines them with CVA and derives the variant prop types with
 `VariantProps`. It does not use nested ternaries to select long Tailwind class
 strings.
+
+Given class composition in a Tailwind v4 component, the agent installs `cn`
+and imports it directly from the package, keeping caller classes last. It does
+not recreate a clsx/tailwind-merge wrapper or add a re-export-only helper.
+
+## Existing Tailwind v3 project
+
+Given a migration request for a repository with Tailwind v3, including mixed
+v3/v4 frontend workspaces, the agent upgrades every v3 workspace to v4 in the
+current PR. Generic framework or dependency-major preservation does not defer
+this work. It updates affected configuration, plugins, and styles, checks
+lockfile resolutions, adopts `cn`, and validates builds and component states
+while preserving the product's visual identity.
+
+## Component source conventions
 
 Given related local values, the agent declares each with its own descriptive
 `const` statement rather than using a comma-separated declaration. A React
@@ -58,6 +73,8 @@ generated file.
 
 Given an audit request, the agent reports gaps and recommendations without
 creating a branch, changing files, mutating GitHub settings, or opening a PR.
+Any Tailwind v3 usage is a required upgrade, not an accepted compatibility
+exception; an audit still reports it without modifying the repository.
 
 ## Existing dirty repository
 

@@ -27,8 +27,14 @@
   parameters are only for state within a route (search, filters, sorting,
   pagination); do not use query/hash routing. Add legacy redirects only when
   explicitly requested. Test direct links, reloads, browser history, and invalid paths.
-- Use Tailwind only. Build every component from scratch with accessible web
-  primitives. Do not install shadcn/ui, Radix, or another component/headless UI
+- Use Tailwind v4 only. Upgrade existing v3 frontend workspaces in the current
+  migration PR; do not defer this required work under framework or
+  dependency-major preservation rules. Update configuration, plugins, and
+  affected styles, preserve visual identity, and validate builds and component
+  states. Check workspace dependencies and lockfile resolutions for remaining
+  v3 usage.
+- Build every component from scratch with accessible web primitives. Do not
+  install shadcn/ui, Radix, or another component/headless UI
   kit. Use Lucide icons.
 - Use CVA (`class-variance-authority`) for reusable components with named
   variants, sizes, or compound visual states. Keep variant classes and defaults
@@ -40,9 +46,7 @@
   and pass caller classes last. Keep CVA for variants; do not recreate the
   clsx/tailwind-merge wrapper or add a re-export-only helper. The package does
   not require shadcn/ui.
-- Preserve the existing Tailwind major during migration. Tailwind v3 projects
-  retain a compatible merger (`tailwind-merge` v2) until an upgrade is
-  requested. For eligible migrations, inspect custom merge configuration,
+- During migration to v4 and `cn`, inspect custom merge configuration,
   verify affected states, and remove old direct dependencies only when no
   remaining imports require them. Use `cn/config` for custom merge rules when
   needed; do not add build plugins or dependency aliases by default.

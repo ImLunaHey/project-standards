@@ -11,7 +11,7 @@ https://github.com/ImLunaHey/project-standards/blob/main/AGENT_PLAYBOOK.md
 
 Profile: auto-detect
 Migration scope: repository hygiene, documentation, tests, CI, package/build
-metadata, and safe dependency maintenance.
+metadata, safe dependency maintenance, and required Tailwind v3-to-v4 upgrades.
 Compatibility constraints: preserve the current product behavior, framework,
 package manager, deployment contract, and supported runtime unless a change is
 required to fix a demonstrated problem.
@@ -19,8 +19,9 @@ required to fix a demonstrated problem.
 Read repository-local instructions and the canonical playbook before editing.
 Audit first, record baseline failures, then apply the smallest coherent change.
 Apply frontend component rules within scope, including shared native controls,
-CVA variants, direct cn package imports for Tailwind v4, and semantic theme
-tokens. Preserve the existing Tailwind major and a compatible merger on v3.
+CVA variants, Tailwind v4, direct cn package imports, and semantic theme tokens.
+Upgrade any Tailwind v3 workspaces to v4 in this PR; do not defer the upgrade
+under framework or dependency-major preservation rules.
 Preserve the existing visual identity unless a redesign is requested. Do not
 recolor the product merely to match the new-interface true-black default.
 Check affected components in both themes at phone, tablet, and desktop widths.

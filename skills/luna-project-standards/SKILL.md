@@ -37,7 +37,8 @@ visibility, or mutate unrelated repository settings.
 - Rust is the default backend; use TanStack Start only when a TypeScript
   backend is explicitly required.
 - REST/OpenAPI only. Never GraphQL.
-- Tailwind with custom components only. Never shadcn/ui, Radix, or another
+- Tailwind v4 with custom components only. Upgrade existing Tailwind v3
+  workspaces in the current migration PR. Never shadcn/ui, Radix, or another
   component/headless UI kit.
 - Never create handwritten barrel files. Generator-owned barrels are allowed
   but must not be edited manually.
