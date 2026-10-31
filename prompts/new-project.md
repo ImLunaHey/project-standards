@@ -21,6 +21,10 @@ and open a Conventional Commit PR. Only create the remote if the GitHub remote
 field explicitly authorizes it. Never push project work to main. Do not merge,
 publish, or deploy.
 
+Install the shared PR template at .github/pull_request_template.md. Complete
+its Summary, Validation, and Risks and follow-ups sections for the initial PR,
+including when using CLI/API tools before the template reaches main.
+
 For user interfaces, follow the frontend component and visual design rules:
 shared native controls, CVA variants, Tailwind v4, direct cn package imports,
 semantic tokens, a true-black dark canvas with neutral gray surfaces,

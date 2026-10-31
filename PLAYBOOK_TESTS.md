@@ -21,6 +21,26 @@ The agent audits before editing, selects a profile, records baseline results,
 creates a migration branch, applies a focused change, validates it, and opens a
 PR without merging it.
 
+## Shared pull request template
+
+Given a new repository of any profile, the agent installs the shared PR
+template at `.github/pull_request_template.md`. The initial PR uses its
+completed sections even though the template is not yet on the default branch.
+
+## Existing pull request templates
+
+Given a migration target with a custom template or multiple selectable
+templates, the agent installs/reconciles the shared default in the current PR.
+It preserves necessary project-specific requirements and ensures retained
+selectable templates include the shared sections. It does not leave a
+conflicting default or erase required questions.
+
+Given a PR created through a CLI or API, the agent explicitly supplies a body
+with Summary, Validation, and Risks and follow-ups. It explains rationale and
+exact check results, including skipped checks, removes instructional comments,
+and updates the description when the diff changes. It never invents successful
+validation results to fill the template.
+
 ## Frontend with a Rust backend
 
 Given a web product that needs a backend without a TypeScript-backend

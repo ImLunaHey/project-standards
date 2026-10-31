@@ -75,7 +75,9 @@ Do not initialize a nested repository inside another checkout.
 6. Scaffold the smallest working vertical slice. Remove generated starter
    copy, placeholder assets, and failing placeholder tests.
 7. Add repository essentials: README, license when applicable, `.gitignore`,
-   environment example, local quality commands, tests, and CI.
+   environment example, local quality commands, tests, CI, and the
+   [shared PR template](templates/github/pull_request_template.md) at
+   `.github/pull_request_template.md`.
 8. Install dependencies using the selected package manager and commit exactly
    one lockfile.
 9. Run format, lint, type-check, test, build, and package checks that apply.
@@ -110,12 +112,16 @@ Do not initialize a nested repository inside another checkout.
    fix a demonstrated problem. Tailwind v3-to-v4 upgrades are required in the
    current PR; framework preservation must not defer them.
 7. Do not mix product features, broad rewrites, or unrelated dependency majors
-   into a standards PR.
+   into a standards PR. Install or reconcile the shared PR template in this
+   PR, retaining necessary repository-specific requirements as described in
+   the [GitHub standard](standards/github.md).
 8. Run the full applicable validation set and inspect the final diff for
    secrets, generated noise, and accidental behavior changes.
 9. Use Conventional Commits, then push and open a PR whose title also follows
-   Conventional Commits. Include summary, rationale, validation, known
-   deviations, and follow-up work. Link the PR to the active T3 Code thread
+   Conventional Commits. Complete the shared template's Summary, Validation,
+   and Risks and follow-ups sections, including rationale and any deviations.
+   Supply this body explicitly for CLI/API-created PRs, including the PR that
+   installs the template. Link the PR to the active T3 Code thread
    when the tool is available.
 10. Never merge, publish a package, deploy, archive, or change repository
     visibility without explicit approval.

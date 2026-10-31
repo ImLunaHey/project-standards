@@ -45,6 +45,9 @@ visibility, or mutate unrelated repository settings.
 - Every user-facing interface is mobile-first and meets WCAG 2.2 AA.
 - Every project change uses a `luna/*` branch, Conventional Commits, and a PR.
   Never push project changes directly to `main`.
+- Every repository installs and uses the
+  [shared PR template](assets/pull_request_template.md) at
+  `.github/pull_request_template.md`, following the delivery reference.
 
 Finish by reporting the outcome, exact validation run, deviations, PR link when
 one was created, and the next decision needed from the user.

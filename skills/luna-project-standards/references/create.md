@@ -9,7 +9,9 @@
    placeholder tests, and unused dependencies.
 4. Add a practical README, MIT license for public original work unless
    constrained otherwise, `.gitignore`, secret-free `.env.example`, tests, CI,
-   Renovate, and local validation commands.
+   Renovate, local validation commands, and the
+   [bundled PR template](../assets/pull_request_template.md) at
+   `.github/pull_request_template.md`.
 5. Pin tools with Mise, commit the appropriate lockfiles, and include
    production Dockerfiles plus Docker Compose when external local services are
    needed.
@@ -25,7 +27,8 @@ PR can exist, so limit the unavoidable bootstrap to an empty root commit:
 3. Create `luna/initial-project` and commit all project files there with
    Conventional Commits.
 4. Create a remote only when explicitly authorized, push the base and feature
-   branches, then open a PR. Do not merge it.
+   branches, then open a PR with the completed template body. Supply the body
+   explicitly even before the template reaches `main`. Do not merge it.
 
 If the user did not authorize a remote, leave the validated local branch ready
 and explain that a PR cannot exist until a remote is chosen.

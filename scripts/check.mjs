@@ -45,6 +45,42 @@ if (manifest) {
 }
 
 const canonicalUrl = 'https://github.com/ImLunaHey/project-standards/blob/main/AGENT_PLAYBOOK.md';
+const prTemplate = manifest?.defaults?.pullRequestTemplate;
+if (
+  !prTemplate ||
+  ['source', 'destination', 'skillAsset'].some(
+    (key) => typeof prTemplate[key] !== 'string' || !prTemplate[key],
+  ) ||
+  !Array.isArray(prTemplate.requiredSections) ||
+  prTemplate.requiredSections.length === 0 ||
+  prTemplate.requiredSections.some((section) => typeof section !== 'string' || !section)
+) {
+  failures.push('standards.json: shared PR template paths and sections must be declared');
+} else {
+  const templateContents = new Map();
+  for (const key of ['source', 'destination', 'skillAsset']) {
+    const path = resolve(root, prTemplate[key]);
+    if (!existsSync(path) || !statSync(path).isFile()) {
+      failures.push(`standards.json: missing PR template ${prTemplate[key]}`);
+    } else {
+      templateContents.set(key, readFileSync(path, 'utf8'));
+    }
+  }
+
+  const source = templateContents.get('source');
+  if (source !== undefined) {
+    const sections = [...source.matchAll(/^## (.+)$/gm)].map((match) => match[1]);
+    if (JSON.stringify(sections) !== JSON.stringify(prTemplate.requiredSections)) {
+      failures.push('shared PR template: sections must match the manifest in order');
+    }
+    for (const key of ['destination', 'skillAsset']) {
+      if (templateContents.has(key) && templateContents.get(key) !== source) {
+        failures.push(`${prTemplate[key]}: differs from the canonical PR template`);
+      }
+    }
+  }
+}
+
 const promptContracts = {
   'auto.md': ['Mode: auto-detect', 'Never initialize a nested Git repository', 'luna/*'],
   'new-project.md': ['GitHub remote:', 'luna/*', 'Never push project work to main'],

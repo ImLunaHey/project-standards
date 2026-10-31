@@ -18,6 +18,10 @@ required to fix a demonstrated problem.
 
 Read repository-local instructions and the canonical playbook before editing.
 Audit first, record baseline failures, then apply the smallest coherent change.
+Install or reconcile .github/pull_request_template.md with the shared template
+in this PR, retaining necessary repository-specific requirements. Complete its
+Summary, Validation, and Risks and follow-ups sections for the PR body,
+including when using CLI/API tools.
 Apply frontend component rules within scope, including shared native controls,
 CVA variants, Tailwind v4, direct cn package imports, and semantic theme tokens.
 Upgrade any Tailwind v3 workspaces to v4 in this PR; do not defer the upgrade

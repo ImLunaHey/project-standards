@@ -62,6 +62,10 @@ Adaptable reference configuration lives under [`templates/`](templates).
 - CI uses least privilege and runs the same checks developers run locally.
 - All project changes use `luna/*` branches and Conventional Commit PRs. Agents
   never push project changes to `main` or merge without explicit approval.
+- Every repository uses the [shared PR template](templates/github/pull_request_template.md)
+  at `.github/pull_request_template.md`, covering Summary, Validation, and
+  Risks and follow-ups. New projects install it; migrations reconcile existing
+  templates while retaining necessary project-specific requirements.
 
 Machine-readable defaults are available in [`standards.json`](standards.json).
 

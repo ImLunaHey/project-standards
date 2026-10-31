@@ -18,14 +18,51 @@
   materially saves resources.
 - Configure Renovate with scheduled, grouped updates, including updates to
   pinned GitHub Action SHAs.
-- PR descriptions include summary, rationale, validation, deviations, and
-  follow-ups.
+- Every repository installs and uses the shared PR template described below.
+  PR descriptions cover summary, rationale, validation, deviations, and
+  follow-ups within its three sections.
 - Agents do not merge their own PRs without explicit approval.
 - Enable squash merging and disable merge commits and rebase merging. Configure
   the squash commit title from the PR title and its body from the PR body.
 - Delete merged branches automatically.
 - Repository description, topics, homepage, Pages, package, and deployment
   settings are GitHub state, not PR content; change them only with authorization.
+
+## Shared pull request template
+
+The canonical template is
+[`templates/github/pull_request_template.md`](../templates/github/pull_request_template.md).
+Install it as `.github/pull_request_template.md` in every repository, regardless
+of language or profile. Add it when creating a project; add or reconcile it in
+the current PR when migrating an existing repository.
+
+Keep the shared sections in this order:
+
+- **Summary:** the concrete problem, resulting behavior, and rationale. Include
+  issue links when relevant; one or two sentences can be enough for small changes.
+- **Validation:** exact commands or checks and their results, including failures
+  and checks not run with reasons. Add visual evidence when it helps review UI
+  changes; never pre-check claims or report unrun checks as passing.
+- **Risks and follow-ups:** material risks, breaking changes, migration or
+  rollback needs, standards deviations, and remaining work. Write `None` when
+  there are none. Documenting rollout work does not authorize performing it.
+
+During migration, inspect existing default and selectable PR templates. Carry
+forward necessary repository-specific requirements within or after the shared
+sections, and consolidate redundant defaults. Any retained selectable template
+must include the shared sections. Do not silently discard required checks or
+instructions, or retain a different template solely because it already exists.
+
+Fill the sections and remove instructional comments before opening a PR.
+Agents must supply the completed body when using CLI/API tools, including for
+the PR that installs the template. Keep the description aligned with the final
+diff. GitHub's automatic template population becomes available once the file
+is on the default branch; a template is not a CI enforcement rule. See
+[GitHub's template documentation](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository).
+
+This repository's active template and the skill's bundled asset must match the
+canonical file exactly. Update all three together; `pnpm validate` checks for
+drift. Other repositories may retain their necessary additional requirements.
 
 ## Reusable PR-title check
 

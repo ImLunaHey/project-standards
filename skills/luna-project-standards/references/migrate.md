@@ -12,12 +12,16 @@
    Inspect every frontend workspace and its lockfile resolutions.
 5. Create `luna/<kebab-case-description>` from the intended base.
 6. Apply the smallest coherent migration. Do not mix product features or broad
-   rewrites into the standards PR.
+   rewrites into the standards PR. Install or reconcile the
+   [bundled PR template](../assets/pull_request_template.md) at
+   `.github/pull_request_template.md`, preserving necessary project-specific
+   requirements as described in the delivery reference.
 7. Run every applicable validation category and inspect the diff for secrets,
    generated noise, and behavior changes.
 8. Use Conventional Commits. Push only the feature branch and open a PR with a
-   Conventional Commit title, summary, rationale, validation, deviations, and
-   follow-ups. Link it to the active T3 Code thread when supported.
+   Conventional Commit title and a completed template body covering Summary,
+   Validation, and Risks and follow-ups, including rationale and deviations.
+   Link it to the active T3 Code thread when supported.
 
 Do not merge, publish, deploy, archive, change visibility, or change unrelated
 repository settings without explicit authorization.

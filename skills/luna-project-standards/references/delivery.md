@@ -11,6 +11,30 @@
   title and PR body as the commit body, then delete merged branches.
 - Pin GitHub Actions to full commit SHAs and let Renovate update them.
 
+## Pull request template
+
+Install the [bundled template](../assets/pull_request_template.md) at
+`.github/pull_request_template.md` in every repository. New projects include it
+from the start; migrations add or reconcile it in the current PR. Inspect
+existing default and selectable templates, preserve necessary project-specific
+requirements within or after the shared sections, and consolidate redundant
+defaults. Any retained selectable template must use the shared sections too.
+
+Complete these sections in order:
+
+- **Summary:** the problem, resulting behavior, and rationale; include relevant
+  issue links. Keep small changes to one or two sentences when sufficient.
+- **Validation:** exact commands/checks and results, failures, and anything not
+  run with reasons. Include visual evidence when useful for UI review.
+- **Risks and follow-ups:** material risks, breaking changes, migration/rollback
+  needs, standards deviations, and remaining work; write `None` if absent.
+
+Remove instructional comments and keep the body aligned with the final diff.
+Supply the completed body explicitly for CLI/API-created PRs, including the
+initial or migration PR that installs the template; automatic population only
+becomes available after the file reaches the default branch. Never claim unrun
+checks passed. Describing rollout or follow-up work does not authorize it.
+
 ## Validation
 
 Run and report every applicable category:

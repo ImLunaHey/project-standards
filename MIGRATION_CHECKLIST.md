@@ -18,6 +18,9 @@
 - [ ] License file and package metadata agree.
 - [ ] Starter copy, dead assets, and obsolete badges are removed.
 - [ ] Secrets are absent; environment examples contain placeholders only.
+- [ ] `.github/pull_request_template.md` uses the shared template. Existing
+      templates are reconciled without losing necessary project-specific
+      requirements; any retained selectable templates use the shared sections.
 
 ## Engineering
 
@@ -50,7 +53,9 @@
 - [ ] Migration branch has a focused commit history.
 - [ ] Branch matches `luna/<kebab-case-description>`.
 - [ ] Commits and PR title follow Conventional Commits.
-- [ ] PR explains changes, validation, deviations, and follow-ups.
+- [ ] PR completes the shared Summary, Validation, and Risks and follow-ups
+      sections, explaining rationale, exact checks/results, and deviations.
+      Instructional comments are removed; no unrun check is claimed as passing.
 - [ ] PR is linked to the T3 Code thread when supported.
 - [ ] Nothing is merged, published, deployed, archived, or reconfigured without
       explicit approval.

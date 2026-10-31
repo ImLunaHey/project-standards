@@ -21,6 +21,10 @@ Additional constraints: [deployment target, framework, database, compatibility, 
 
 Read the canonical playbook and every relevant linked standard before editing.
 Preserve explicit repository-local decisions. Run all applicable validation.
+Install or reconcile the shared PR template at .github/pull_request_template.md
+in every project, retaining necessary repository-specific requirements.
+Complete its Summary, Validation, and Risks and follow-ups sections when
+opening the PR, including through CLI/API tools.
 For new interfaces, apply the frontend component and visual design rules:
 shared native controls, CVA variants, Tailwind v4, direct cn package imports,
 semantic tokens, a true-black dark canvas with neutral gray surfaces, and

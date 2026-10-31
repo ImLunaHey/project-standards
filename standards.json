@@ -12,6 +12,14 @@
     "squashCommitMessage": "pull-request-body",
     "conventionalCommits": true,
     "conventionalPullRequestTitles": true,
+    "pullRequestTemplate": {
+      "source": "templates/github/pull_request_template.md",
+      "destination": ".github/pull_request_template.md",
+      "skillAsset": "skills/luna-project-standards/assets/pull_request_template.md",
+      "requiredSections": ["Summary", "Validation", "Risks and follow-ups"],
+      "adoption": "all-repositories",
+      "migration": "reconcile-in-current-pull-request"
+    },
     "defaultBackend": "rust-axum-tokio",
     "typescriptBackend": "tanstack-start",
     "apiStyle": "rest-openapi",
