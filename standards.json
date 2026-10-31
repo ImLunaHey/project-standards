@@ -17,6 +17,19 @@
     "apiStyle": "rest-openapi",
     "graphql": "forbidden",
     "componentVariantUtility": "class-variance-authority",
+    "componentClassUtilities": ["clsx", "tailwind-merge"],
+    "frontendDesign": {
+      "theme": "system-aware-light-and-dark",
+      "darkCanvas": "#000000",
+      "darkSurfaces": "neutral-grayscale",
+      "colorTokens": "semantic",
+      "accent": "restrained-product-specific",
+      "hierarchy": "spacing-borders-surface-contrast",
+      "cornerStyle": "modest-consistent",
+      "density": "context-appropriate",
+      "defaultControlMinHeightRem": 2.75,
+      "preserveExistingIdentityUnlessRedesignRequested": true
+    },
     "oneVariableDeclarationPerStatement": true,
     "handwrittenBarrelFiles": "forbidden",
     "generatedBarrelFiles": "allowed",
@@ -89,6 +102,7 @@
       "react-doctor-oxlint-rules",
       "component-tests",
       "playwright-critical-flows",
+      "component-states-themes-and-responsive-visual-review",
       "slash-route-navigation-and-deep-links"
     ]
   },

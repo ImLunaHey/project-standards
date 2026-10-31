@@ -20,4 +20,10 @@ as required to create the repository, commit project work on a luna/* branch,
 and open a Conventional Commit PR. Only create the remote if the GitHub remote
 field explicitly authorizes it. Never push project work to main. Do not merge,
 publish, or deploy.
+
+For user interfaces, follow the frontend component and visual design rules:
+shared native controls, CVA variants, semantic tokens, a true-black dark canvas
+with neutral gray surfaces, restrained product accents, and system-aware
+light/dark themes. Honor explicit product design requirements. Check component
+states in both themes at phone, tablet, and desktop widths.
 ```

@@ -35,6 +35,35 @@
   in the CVA declaration, derive props with `VariantProps`, and use `cn` to
   merge its result with caller classes instead of branching through class
   strings manually.
+- Implement `cn` with clsx and tailwind-merge, placing caller classes last.
+  Reuse shared native Button, Input, Select, Textarea, and Field primitives;
+  preserve native attributes, events, accessibility, and required ref access.
+  Default buttons to `type="button"`. Use links for navigation. Put recurring
+  appearances in variants rather than copying recipes or important overrides
+  into callers. Extract repeated panel, heading, and status treatments when
+  reuse exists; keep one-off feature layouts local.
+- Define hover, focus-visible, disabled, and applicable selected, pending,
+  invalid, and destructive states with the component. Link labels, hints, and
+  errors to controls, and pair status colors with text or another non-color
+  cue. Default control minimum height to `2.75rem` (44px at the default root
+  size); check any compact exception for accessible targeting in context.
+- New interfaces default to a true-black (`#000000`) dark canvas and neutral
+  grayscale raised surfaces, without navy, slate-blue, or purple surface tints.
+  Support system-aware light/dark themes. Use semantic Tailwind theme tokens
+  for surfaces, borders, text, accent, focus, and status; specialist styling
+  APIs must reuse those tokens. Keep accents restrained and product-specific;
+  orange is not universal and blue can still serve an intentional accent role.
+- Build hierarchy through spacing, thin borders, subtle surface differences,
+  and modest consistent radii. Keep shadows secondary. Use readable sans-serif
+  typography, monospace for technical content, and smaller text for metadata.
+  Match density to the task and reuse a project spacing/type scale; do not
+  shrink essential text to fit. Keep icons and motion functional, and reflow
+  layouts without losing essential content or actions.
+- Preserve an existing product's visual identity during migration unless a
+  redesign is requested. Check affected components and consuming screens in
+  both themes at phone, tablet, and desktop widths, including keyboard focus,
+  contrast, text zoom, overflow, and applicable states. Combine visual review,
+  behavior tests, and automated accessibility checks.
 - Colocate feature components, hooks, schemas, and tests. Put global primitives
   in a shared `components` directory and keep one React component per file.
 - Meet WCAG 2.2 AA and fail lint on violations. Support keyboard navigation,

@@ -28,28 +28,96 @@
 - Add behavior tests for direct entry, reload, tab/detail navigation, history,
   invalid route parameters, and retained filters. Test legacy-link redirects
   only when the user explicitly requested them.
-- Use Tailwind CSS exclusively for application styling.
+
+## Components and styling
+
+- Use Tailwind CSS exclusively for application styling. Keep shared theme
+  tokens in the Tailwind theme; consume them through utilities. When a
+  specialist editor or chart requires its own styling API, reuse the same
+  tokens rather than introducing a separate palette.
 - Never add shadcn/ui, Radix, or another component/headless UI kit. Implement
   components from scratch with semantic platform primitives. Colocate
   feature-specific components; place genuinely global primitives such as
   buttons and inputs in a shared `components` directory.
+- Reuse shared Button, Input, Select, Textarea, and Field primitives when
+  present. Build thin wrappers around native elements, preserving their
+  attributes, events, accessible names, and required ref access. Default
+  buttons to `type="button"`; use links for navigation and buttons for actions.
 - Use `cva` from `class-variance-authority` for reusable components with named
   variants, sizes, or compound visual states. Define the Tailwind classes and
   defaults in the CVA configuration, derive prop types with `VariantProps`, and
   use `cn` only to merge the generated classes with a caller's `className`.
   Avoid nested ternaries or manually assembled style strings for component
   variants.
+- Implement `cn` with `clsx` and `tailwind-merge`. Pass caller classes last.
+  Use named variants for recurring appearances and `className` for contextual
+  layout adjustments. Do not paste a shared control's full style recipe into
+  its callers or rely on repeated important overrides to restyle it.
+- Extract repeated panel, heading, field, and status treatments into shared
+  components or recipes when they recur. Keep one-off feature layouts local;
+  do not create a universal component API before there is a reuse case.
+- Define hover, focus-visible, disabled, and applicable selected, pending,
+  invalid, and destructive states with the component. Associate labels,
+  hints, and validation errors with their controls; pair status colors with
+  text or another non-color cue. Use a default control minimum height of
+  `2.75rem` (44px at the default root size). Any compact exception must retain
+  an accessible target and be checked in its actual layout.
 - Keep every React component in its own file. Group feature code by feature,
   colocating its hooks, schemas, components, and tests.
 - Use Lucide for icons rather than drawing one-off icon SVGs.
 - Remove generator copy and placeholder assets before the initial commit.
+
+## Visual design
+
+These are defaults for new interfaces. Explicit product requirements take
+precedence. During migration, preserve the existing visual identity unless a
+redesign is requested; record proposed visual changes separately.
+
+- The default dark canvas is true black (`#000000`), with neutral grayscale
+  raised surfaces. Do not introduce navy, slate-blue, or purple tints into the
+  default background/surface palette.
+- Define semantic tokens for canvas, surface, raised surface, border, primary
+  text, muted text, accent, focus, and status colors. Use these tokens in shared
+  components instead of scattering raw hex values or making a palette shade
+  carry an undocumented semantic role.
+- Keep most chrome neutral. Use a restrained product accent for primary
+  actions and selection, and distinct semantic colors for status. Orange is
+  the local-paas accent, not a required brand color for every project. Blue
+  remains available for intentional accents, links, charts, and status.
+- Separate content through spacing, thin borders, and small surface-value
+  changes. Keep shadows subtle and secondary. On a black canvas, make panel
+  boundaries and interactive states discernible without relying on shadows.
+- Use modest, consistent corner radii for controls and panels. Reserve fully
+  rounded shapes for components whose role calls for them, such as avatars or
+  badges. Avoid making every container a prominent card; use rows, dividers,
+  and whitespace where they communicate grouping more clearly.
+- Use a clear sans-serif hierarchy with restrained heading weights; reserve
+  monospace for code, identifiers, and technical values. Keep body text and
+  control labels readable, and reserve smaller text for supplementary
+  metadata. Do not shrink essential text to make a layout fit.
+- Match density to the task: compact operational tables and forms can coexist
+  with more generous documentation and marketing layouts. Choose and reuse a
+  project spacing and type scale; do not copy arbitrary pixel values from a
+  reference screen as universal defaults.
+- Use icons to support meaning and label icon-only controls. Keep motion brief
+  and functional, and honor reduced-motion preferences. Reflow groups and
+  navigation at narrow widths; keep essential content and actions available.
+
+## Accessibility and validation
+
 - Every user-facing app is mobile-first and usable on phone, tablet, and
   desktop. Do not ship desktop-only interfaces.
 - WCAG 2.2 AA is the minimum. Enforce accessibility lint failures and test
   important runtime interactions. Include semantic HTML, complete keyboard
   navigation, visible focus, labels, useful alternative text, and reduced
   motion support.
-- Support system-aware light and dark themes.
+- Support system-aware light and dark themes. Give each theme its own readable
+  surfaces and states.
+- Inspect changed shared components and representative consuming screens in
+  both themes at phone, tablet, and desktop widths. Check keyboard focus,
+  contrast, text zoom, overflow, and applicable interaction/data states. Pair
+  visual inspection with behavior tests and automated accessibility checks;
+  passing an automated scan alone does not establish visual quality.
 - Use `Intl` for dates, numbers, and currencies. Keep user-facing formatting
   localization-ready even when the first language is English.
 - Support the current and previous major releases of Chrome, Firefox, Safari,
@@ -61,3 +129,11 @@
 - Use Storybook only for a reusable component library or a substantial design
   system, not for every frontend.
 - Document the production build and deployment contract.
+
+## Design reference
+
+The [local-paas component instructions](https://github.com/ImLunaHey/local-paas/blob/dc01406ade26df3f4035ed7f755b8157e0b327a6/AGENTS.md#L25-L30)
+and [component refactor](https://github.com/ImLunaHey/local-paas/pull/1) inform
+the reuse and variant rules. Its compact console is a visual reference, not
+a template to duplicate: the reference uses near-black zinc surfaces, while
+the true-black default above records Luna's explicit design preference.

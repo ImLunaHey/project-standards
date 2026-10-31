@@ -47,6 +47,11 @@ Adaptable reference configuration lives under [`templates/`](templates).
   a TypeScript backend is explicitly required.
 - Frontends use React, Tailwind, and relevant TanStack libraries with custom,
   accessible components. GraphQL and component/headless UI kits are forbidden.
+- New interfaces use shared native controls, typed CVA variants, and semantic
+  theme tokens. Dark mode defaults to true black with neutral gray surfaces
+  and restrained product accents; system-aware light mode is also required.
+  Migrations preserve existing visual identity unless a redesign is requested.
+  See the [component and visual design rules](standards/frontend.md).
 - pnpm, Oxfmt, Oxlint, Vitest, Mise, Renovate, and Turborepo are the TypeScript
   and monorepo defaults.
 - Public original work defaults to the MIT license unless the project brief

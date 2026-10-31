@@ -34,6 +34,14 @@ as the fuller explanation when the two appear ambiguous.
 If the canonical files cannot be accessed, stop and ask the user to provide
 them. Do not invent a remembered or approximate version of the standards.
 
+For user interfaces, apply the component and visual design rules in the
+[frontend standard](standards/frontend.md): shared native primitives, typed
+CVA variants, `cn` using clsx and tailwind-merge, and semantic theme tokens.
+New interfaces default to a true-black dark canvas with neutral gray surfaces,
+restrained product accents, and system-aware light/dark themes. Preserve an
+existing product's visual identity during migration unless a redesign is
+requested. Validate component states in both themes and responsive layouts.
+
 ## Detect the operating mode
 
 Inspect the current working directory without modifying it.

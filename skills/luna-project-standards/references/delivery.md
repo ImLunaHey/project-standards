@@ -19,6 +19,9 @@ Run and report every applicable category:
 - static type checking
 - unit, integration, and end-to-end tests
 - accessibility lint and runtime checks for UIs
+- visual review of affected shared components and consuming screens in both
+  light/dark themes at phone, tablet, and desktop widths, covering applicable
+  states, keyboard focus, contrast, text zoom, and overflow
 - production builds and packaging/export checks
 - dependency, license, and secret audits
 - runtime smoke tests when packaging or module formats change
