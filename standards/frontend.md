@@ -94,9 +94,9 @@ redesign is requested; record proposed visual changes separately.
   components instead of scattering raw hex values or making a palette shade
   carry an undocumented semantic role.
 - Keep most chrome neutral. Use a restrained product accent for primary
-  actions and selection, and distinct semantic colors for status. Orange is
-  the local-paas accent, not a required brand color for every project. Blue
-  remains available for intentional accents, links, charts, and status.
+  actions and selection, and distinct semantic colors for status. Choose the
+  accent color for the product; no single hue is required. Blue remains
+  available for intentional accents, links, charts, and status.
 - Separate content through spacing, thin borders, and small surface-value
   changes. Keep shadows subtle and secondary. On a black canvas, make panel
   boundaries and interactive states discernible without relying on shadows.
@@ -142,11 +142,3 @@ redesign is requested; record proposed visual changes separately.
 - Use Storybook only for a reusable component library or a substantial design
   system, not for every frontend.
 - Document the production build and deployment contract.
-
-## Design reference
-
-The [local-paas component instructions](https://github.com/ImLunaHey/local-paas/blob/dc01406ade26df3f4035ed7f755b8157e0b327a6/AGENTS.md#L25-L30)
-and [component refactor](https://github.com/ImLunaHey/local-paas/pull/1) inform
-the reuse and variant rules. Its compact console is a visual reference, not
-a template to duplicate: the reference uses near-black zinc surfaces, while
-the true-black default above records Luna's explicit design preference.
